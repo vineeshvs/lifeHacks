@@ -1,0 +1,15 @@
+Installation:
+------------
+Installation guide: http://iverilog.wikia.com/wiki/Installation_Guide
+
+Download the latest one from git
+    https://github.com/steveicarus/iverilog
+
+Trying out the first example
+    Use the following command to generate .vcd file
+        iverilog -o example_3_1.vvp example_3_1_tb.v
+    Display the waveforms
+        export DISPLAY=:0.0
+        gtkwave example_3_1.vcd
+
+

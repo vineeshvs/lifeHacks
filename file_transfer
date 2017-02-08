@@ -1,0 +1,5 @@
+Copy files from any machine to wecare server
+
+scp -r folder_name wecare@10.107.79.172:~/Downloads/transferred
+
+

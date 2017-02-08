@@ -1,0 +1,5 @@
+Error:
+    Could not initialize GTK!  Is DISPLAY env var/xhost set?
+Solution:
+    export DISPLAY=:0.0
+    gtkwave file_name.vcd  
