@@ -7,11 +7,11 @@
         set shiftwidth=4
         " On pressing tab, insert 4 spaces
         set expandtab
-    Ref: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim  
+    Ref: [http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim]
 
 Indenting a block of codes in Vim
-    V j j >
-    Ref: http://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi      
+		V j j >
+    Ref: [http://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi]
 
 * Paste as it is in vim
 	* Do :set paste
@@ -20,3 +20,5 @@ Indenting a block of codes in Vim
 * Mark in Vim
 	* ma:	set mark a at current cursor location
 	* 'a:	jump to line of mark a (first non-blank character in line) 
+* Moving between two windows in vimdiff or vim -d
+        Ctrl+w w also moves to the next window
