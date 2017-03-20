@@ -1,4 +1,4 @@
-###### View schematic of a VHDL file in Modelsim
+##### View schematic of a VHDL file in Modelsim
 * Go to SIM tab in the panel after simulation
 * Right click on the top module name and ADD -> TO SCHEMATIC -> SELECTED REGION
 * Go to SCHEMATIC tab
@@ -6,7 +6,7 @@
     * Right click on it
     * EXPAND NET TO -> DESIGN INPUTS        
 
-###### Error invoking modelsim in VLSI Lab, IITB
+##### Error invoking modelsim in VLSI Lab, IITB
 Error: /cad2/mentor/modelsim_10.0/modeltech/bin/../linux/vish: error while loading shared libraries: libXft.so.2: wrong ELF class: ELFCLASS64
 Solution:
 * Log in  (Do SSH)
