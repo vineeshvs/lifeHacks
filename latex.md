@@ -17,7 +17,7 @@
 		%\psfrag{R}{R}
 		%\psfrag{1.8 kOhm}{1.8 k$\Omega$}
 		\includegraphics[width=0.5\textwidth]{../images/ex_circuit.pdf}
-		\caption{Circuit diagram to observe Body Bias}
+		\	caption{Circuit diagram to observe Body Bias}
 		\label{ckt_bodybias}
 		\end{figure}
 

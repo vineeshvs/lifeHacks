@@ -2,7 +2,8 @@
 
 ### Include graphics in your README files using ASCII images
     Ref: http://picascii.com/
-
+### Sort files based on modification date 
+	ll -t
 ### Sort files based on size
 	ls -lSr
 ### Check folder size in Ubuntu
