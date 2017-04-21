@@ -1,4 +1,22 @@
-### Because teminal is your best friend
+## Because teminal is your best friend
+
+### What to do when Ubuntu GUI hangs and not even terminal opens
+    * Go to command-line mode. (Press C-A-F3 in Thinkpad E470)
+    * ps -u
+    * Check the pid of the process which created the trouble (Eg: 6779)
+    * kill -9 9779
+    * Do at your own risk because you will be in trouble, if you kill the wrong process
+
+### 'Save as' in Vim and edit the new file
+    :saveas newFileName
+
+### List all active processes in the machine in terminal
+    top
+    <press 'u'>
+    <Enter your username to see the processes you are running>
+    
+    top -u
+    <Directly display the processes you are running>
 
 ### Include graphics in your README files using ASCII images
     Ref: http://picascii.com/
