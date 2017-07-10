@@ -1,5 +1,16 @@
 ## Because teminal is your best friend
 
+### Hibernate Ubuntu 16.04 machine
+  Choice 1:
+  sudo systemctl hibernate
+  
+  Choice 2:
+  sudo pm-hibernate
+
+### What to do when the wifi options are not listed and two 'wired' connections are displayed instead of one 'wired' and one 'wireless'
+    systemctl restart NetworkManager.service
+    Ref: (https://askubuntu.com/questions/789843/wired-connection-icon-is-displayed-instead-of-wifi-icon-ubuntu-16-04)
+
 ### What to do when Ubuntu GUI hangs and not even terminal opens
     * Go to command-line mode. (Press C-A-F3 in Thinkpad E470)
     * ps -u

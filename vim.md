@@ -1,3 +1,10 @@
+* Find the number of lines where a pattern is found
+  :%s/<PATTERN_NAME>/gn
+
+* Searching multiple words in Vim editor
+  /search1\|search2
+  Ref: http://stackoverflow.com/questions/704434/is-there-any-way-to-highlight-multiple-searches-in-gvim
+
 * Changing the tab width to 6 spaces permanenlty
     Add the following to .vimrc (create one if not found in ~/)
         filetype plugin indent on
