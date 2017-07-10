@@ -1,12 +1,17 @@
 ## Because teminal is your best friend
 
+### Removing proxy in Ubuntu terminal
+    unset http_proxy
+    unset https_proxy
+  [Ref](https://askubuntu.com/questions/465198/how-do-i-temporarily-remove-proxy-settings)
+
 ### Hibernate Ubuntu 16.04 machine
   Choice 1:
   sudo systemctl hibernate
   
   Choice 2:
   sudo pm-hibernate
-
+    
 ### What to do when the wifi options are not listed and two 'wired' connections are displayed instead of one 'wired' and one 'wireless'
     systemctl restart NetworkManager.service
     Ref: (https://askubuntu.com/questions/789843/wired-connection-icon-is-displayed-instead-of-wifi-icon-ubuntu-16-04)
