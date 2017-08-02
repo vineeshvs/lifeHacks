@@ -1,5 +1,13 @@
 ## Because teminal is your best friend
 
+### Cropping away white spaces in a pdf file
+    pdfcrop --margins '5 10 20 30' wrap.pdf wrap_cropped.pdf 
+    [Ref](https://askubuntu.com/questions/124692/command-line-tool-to-crop-pdf-files)
+
+### Killing <defunc> processes in terminal
+    ps -ef | grep defunct | grep -v grep | cut -b8-20 | xargs kill -9
+  [Ref](https://askubuntu.com/questions/201303/what-is-a-defunct-process-and-why-doesnt-it-get-killed)
+
 ### Removing proxy in Ubuntu terminal
     unset http_proxy
     unset https_proxy
