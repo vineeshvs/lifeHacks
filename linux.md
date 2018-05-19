@@ -1,9 +1,62 @@
 ## Because teminal is your best friend
 
+### Saving terminal output to a file
+
+          || visible in terminal ||   visible in file   || existing
+  Syntax  ||  StdOut  |  StdErr  ||  StdOut  |  StdErr  ||   file   
+==========++==========+==========++==========+==========++===========
+    >     ||    no    |   yes    ||   yes    |    no    || overwrite
+    >>    ||    no    |   yes    ||   yes    |    no    ||  append
+          ||          |          ||          |          ||
+   2>     ||   yes    |    no    ||    no    |   yes    || overwrite
+   2>>    ||   yes    |    no    ||    no    |   yes    ||  append
+          ||          |          ||          |          ||
+   &>     ||    no    |    no    ||   yes    |   yes    || overwrite
+   &>>    ||    no    |    no    ||   yes    |   yes    ||  append
+          ||          |          ||          |          ||
+ | tee    ||   yes    |   yes    ||   yes    |    no    || overwrite
+ | tee -a ||   yes    |   yes    ||   yes    |    no    ||  append
+          ||          |          ||          |          ||
+ n.e. (*) ||   yes    |   yes    ||    no    |   yes    || overwrite
+ n.e. (*) ||   yes    |   yes    ||    no    |   yes    ||  append
+          ||          |          ||          |          ||
+|& tee    ||   yes    |   yes    ||   yes    |   yes    || overwrite
+|& tee -a ||   yes    |   yes    ||   yes    |   yes    ||  append
+
+[Credits](https://askubuntu.com/questions/420981/how-do-i-save-terminal-output-to-a-file)
+
+### Ignore files in git
+  git rm --cached *.out *.log *.nav *.snm *.toc
+
+### Enable and disable auto-indenting in Vim
+  Enable
+    :set nopaste
+  Disable
+    :set paste
+
+### Indenting in vim 
+  Go to visual mode, select text and press >
+
+### Paste without indenting in Vim
+  :set paste
+  Shift + Ctrl + v
+
+### Ubuntu network error (Device not ready)
+  sudo service network-manager restart
+
+### Ubuntu network error (Not authorized to control networking)
+  sudo usermod -G netdev -a vineesh
+  or
+  sudo su
+  usermod -G netdev -a vineesh
+
 ### Cropping away white spaces in a pdf file
     pdfcrop --margins '5 10 20 30' wrap.pdf wrap_cropped.pdf 
     [Ref](https://askubuntu.com/questions/124692/command-line-tool-to-crop-pdf-files)
 
+### Killing vsim in Modelsim
+		ps -ef | grep 'vsim'
+		kill -9 <pid>
 ### Killing <defunc> processes in terminal
     ps -ef | grep defunct | grep -v grep | cut -b8-20 | xargs kill -9
   [Ref](https://askubuntu.com/questions/201303/what-is-a-defunct-process-and-why-doesnt-it-get-killed)
@@ -91,7 +144,7 @@
 	* Search for words inside a pdf file
 		sudo apt-get install pdfgrep
 		find /path -iname '*.pdf' -exec pdfgrep pattern {} +
-		Eg: find . -iname '*.pdf' -exec pdfgrep <string_to_be_searched> {} +
+		find . -iname '*.pdf' -exec pdfgrep <string_to_be_searched> {} +
 ### Using find
     * Recursively look for files with a specific extension
         find $directory -type f -name \*.in
@@ -186,7 +239,8 @@
     * Compress
 		tar -zcvf archive_name.tar.gz folder_to_compress
 	* Uncompress
-		
+		tar xvzf archive_name.tar.gz
+    tar xf archive_name.xz
 
 ### 'Cannot open display error'
 	* Use the following command
