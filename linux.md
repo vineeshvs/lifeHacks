@@ -1,3 +1,6 @@
+## TODO
+* Upload xournal config file
+
 ## Because teminal is your best friend
 
 ### Saving terminal output to a file
