@@ -3,6 +3,9 @@
 
 ## Because teminal is your best friend
 
+## Cropping pdf in Ubuntu terminal
+    pdfcrop --margins '0 0 0 -345' miss_vs_tick.pdf out.pdf
+
 ### Saving terminal output to a file
 
               || visible in terminal ||   visible in file   || existing
