@@ -1,3 +1,8 @@
+### Installing the texlive full
+    sudo apt install texlive-full
+  [Read this before you do](https://tex.stackexchange.com/questions/134365/installation-of-texlive-full-on-ubuntu-12-04)
+
+
 17-Jan-2017
 -----------
 * Hyperlink
