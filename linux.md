@@ -4,6 +4,10 @@
 ## Because teminal is your best friend
 
 ## Cropping pdf in Ubuntu terminal
+  Setting proxy in terminal when you have special characters in the username and passowrd
+  [Ref](https://www.cyberciti.biz/faq/unix-linux-export-variable-http_proxy-with-special-characters/)
+
+## Cropping pdf in Ubuntu terminal
     pdfcrop --margins '0 0 0 -345' miss_vs_tick.pdf out.pdf
 
 ### Saving terminal output to a file
