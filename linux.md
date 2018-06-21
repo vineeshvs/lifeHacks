@@ -3,6 +3,9 @@
 
 ## Because teminal is your best friend
 
+## If wifi icon is not getting displayed in Ubuntu 16.04
+    nohup nm-applet &
+
 ## Cropping pdf in Ubuntu terminal
   Setting proxy in terminal when you have special characters in the username and passowrd
   [Ref](https://www.cyberciti.biz/faq/unix-linux-export-variable-http_proxy-with-special-characters/)
