@@ -3,8 +3,103 @@
 
 ## Because teminal is your best friend
 
-## If wifi icon is not getting displayed in Ubuntu 16.04
+## Network related 
+### If 'Enable Wi-Fi option is disabled' in Ubuntun 16.06
+    rfkill unblock all
+    [Ref](https://askubuntu.com/questions/152157/enable-wireless-option-is-disabled-in-network-settings)
+
+### If wifi icon is not getting displayed in Ubuntu 16.04
     nohup nm-applet &
+
+### Ubuntu network error (Device not ready)
+  sudo service network-manager restart
+
+### Ubuntu network error (Not authorized to control networking)
+  sudo usermod -G netdev -a vineesh
+  or
+  sudo su
+  usermod -G netdev -a vineesh
+
+### What to do when the wifi options are not listed and two 'wired' connections are displayed instead of one 'wired' and one 'wireless'
+    systemctl restart NetworkManager.service
+    Ref: (https://askubuntu.com/questions/789843/wired-connection-icon-is-displayed-instead-of-wifi-icon-ubuntu-16-04)
+
+### Ubuntu Proxy Settings (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
+    Following is the way to get Ubuntu working under IITB proxy with apt-line installation
+        For Ubuntu 11.04 and below, go to network proxy.
+        Set proxy either netmon.iitb.ac.in port 80 or www.aero.iitb.ac.in port 8081 for all protocols.
+        In exclusion list, add *.iitb.ac.in and 10.0.0.0/8.
+        Apply system wide
+        For Ubuntu 11.10 and above, go to Network from the dash. Network Proxy should be under it. Set proxy as above. 
+
+    Now some files have to be edited:
+
+        Open terminal.
+        Type
+
+        sudo gedit /etc/apt/apt.conf /etc/environment /etc/wgetrc 
+
+        This will open 3 files in gedit
+        If you are using aero proxy, P=http://www.aero.iitb.ac.in:8081/ . If you are using netmon, P=http://ldapusername:ldappassword@netmon.iitb.ac.in:80/. Use HTTP protocol only. No https://.... or ftp://....
+        The /etc/apt/apt.conf should look like 
+
+        Acquire::http::proxy "P";
+        Acquire::https::proxy "P";
+
+        ###### P is from previous step
+        #### Notice: No FTP proxy
+                    
+
+        For /etc/environment, 
+
+        #### Something about PATH variable here
+
+        http_proxy=P
+        https_proxy=P
+        ftp_proxy=P
+                    
+
+        For /etc/wgetrc, Uncomment the proxy lines and replace the values by value of P. Uncomment the line use_proxy=on
+        Save files, restart Terminal and you are done!!!
+
+
+### Ubuntu Repository Settings (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
+
+    To use IITB apt software repositories in ubuntu, follow the steps:
+
+        Make sure you have no FTP proxy in /etc/apt/apt.conf file. If you have followed proxy instructions from this wiki, you don't need to do anything.
+        Make a backup of /etc/apt/sources.list if you want to.
+        Open Terminal.
+        Type & hit enter 
+
+    sudo gedit /etc/apt/sources.list
+
+	A file will open in gedit. Replace all the contents by 
+
+    ########## Warning: Instead of maverick, use the name of your distribution in following lines
+    # For 12.04, its 'precise' 
+
+    deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick main restricted
+    deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick main restricted
+
+    deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates main restricted
+    deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates main restricted
+
+    deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick universe
+    deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick universe
+    deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates universe
+    deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates universe
+
+    deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick multiverse
+    deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick multiverse
+    deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates multiverse
+    deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates multiverse
+                
+
+    Save the file.
+    Run sudo apt-get update in Terminal. You are done.
+    Now you can install softwares from IITB repositories. They are very fast as compared to HTTP repositories. 
+
 
 ## Cropping pdf in Ubuntu terminal
   Setting proxy in terminal when you have special characters in the username and passowrd
@@ -54,15 +149,6 @@
   :set paste
   Shift + Ctrl + v
 
-### Ubuntu network error (Device not ready)
-  sudo service network-manager restart
-
-### Ubuntu network error (Not authorized to control networking)
-  sudo usermod -G netdev -a vineesh
-  or
-  sudo su
-  usermod -G netdev -a vineesh
-
 ### Cropping away white spaces in a pdf file
     pdfcrop --margins '5 10 20 30' wrap.pdf wrap_cropped.pdf 
     [Ref](https://askubuntu.com/questions/124692/command-line-tool-to-crop-pdf-files)
@@ -86,10 +172,6 @@
   Choice 2:
   sudo pm-hibernate
     
-### What to do when the wifi options are not listed and two 'wired' connections are displayed instead of one 'wired' and one 'wireless'
-    systemctl restart NetworkManager.service
-    Ref: (https://askubuntu.com/questions/789843/wired-connection-icon-is-displayed-instead-of-wifi-icon-ubuntu-16-04)
-
 ### What to do when Ubuntu GUI hangs and not even terminal opens
     * Go to command-line mode. (Press C-A-F3 in Thinkpad E470)
     * ps -u
@@ -169,84 +251,6 @@
     If you have another operating system already, it would be nice to backup your files (just in case). If in case you you blow up you Windows while trying to install Ubuntu (happened to me the first time I tried), you can download Windows from IIT Bombay's MS Store, if your from IIT Bombay. If your not from IIT Bombay, then God help you!
 
     You then also need to set up proxy settings if you are within the IIT Bombay network and repository settings if you need to install softwares and packages fast:
-
-### Ubuntu Proxy Settings (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
-    Following is the way to get Ubuntu working under IITB proxy with apt-line installation
-        For Ubuntu 11.04 and below, go to network proxy.
-        Set proxy either netmon.iitb.ac.in port 80 or www.aero.iitb.ac.in port 8081 for all protocols.
-        In exclusion list, add *.iitb.ac.in and 10.0.0.0/8.
-        Apply system wide
-        For Ubuntu 11.10 and above, go to Network from the dash. Network Proxy should be under it. Set proxy as above. 
-
-    Now some files have to be edited:
-
-        Open terminal.
-        Type
-
-        sudo gedit /etc/apt/apt.conf /etc/environment /etc/wgetrc 
-
-        This will open 3 files in gedit
-        If you are using aero proxy, P=http://www.aero.iitb.ac.in:8081/ . If you are using netmon, P=http://ldapusername:ldappassword@netmon.iitb.ac.in:80/. Use HTTP protocol only. No https://.... or ftp://....
-        The /etc/apt/apt.conf should look like 
-
-        Acquire::http::proxy "P";
-        Acquire::https::proxy "P";
-
-        ###### P is from previous step
-        #### Notice: No FTP proxy
-                    
-
-        For /etc/environment, 
-
-        #### Something about PATH variable here
-
-        http_proxy=P
-        https_proxy=P
-        ftp_proxy=P
-                    
-
-        For /etc/wgetrc, Uncomment the proxy lines and replace the values by value of P. Uncomment the line use_proxy=on
-        Save files, restart Terminal and you are done!!!
-
-
-## Ubuntu Repository Settings (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
-
-    To use IITB apt software repositories in ubuntu, follow the steps:
-
-        Make sure you have no FTP proxy in /etc/apt/apt.conf file. If you have followed proxy instructions from this wiki, you don't need to do anything.
-        Make a backup of /etc/apt/sources.list if you want to.
-        Open Terminal.
-        Type & hit enter 
-
-    sudo gedit /etc/apt/sources.list
-
-	```bash        
-	A file will open in gedit. Replace all the contents by 
-
-        ########## Warning: Instead of maverick, use the name of your distribution in following lines
-        # For 12.04, its 'precise' 
-
-        deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick main restricted
-        deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick main restricted
-
-        deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates main restricted
-        deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates main restricted
-
-        deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick universe
-        deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick universe
-        deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates universe
-        deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates universe
-
-        deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick multiverse
-        deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick multiverse
-        deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates multiverse
-        deb-src ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick-updates multiverse
-                    
-
-        Save the file.
-        Run sudo apt-get update in Terminal. You are done.
-        Now you can install softwares from IITB repositories. They are very fast as compared to HTTP repositories. 
-	```
 
 ### Tar in terminal
     * Compress
