@@ -32,14 +32,18 @@
     Ref: [http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim]
 
 Indenting a block of codes in Vim
-		V j j >
-    Ref: [http://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi]
+
+    V j j >
+  Ref: [http://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi]
 
 Indenting a block of code visually
+
   Select the block
     V
+  
   Intent one shiftwidth (as mentioned in .vimrc)
     >
+  
   Repeat the command to intent by one more shiftwidth (and repeat it if you want more)
     .
 
