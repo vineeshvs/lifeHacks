@@ -1,11 +1,15 @@
 Bookmarks
-  F11
+    
+    F11
 
 Breakpoints
-  Shift + Ctrl + F8
+    
+    Shift + Ctrl + F8
 
 Checking the difference between current version and last commit
-  git diff HEAD^ HEAD
+    
+    git diff HEAD^ HEAD
 
 If you just want to check the changes files with certain extension (Eg: .java)
-  git diff HEAD^ HEAD -- '*.java'
+    
+    git diff HEAD^ HEAD -- '*.java'
