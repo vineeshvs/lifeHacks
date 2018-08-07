@@ -1,5 +1,20 @@
+
+* Go to the last line
+    G
+* Go to the first line
+    gg
+* Copy word under cursor
+ yw 
+
+* Copy paste between two buffers
+    Copy from fist file (use visual mode and 'y') then open your second file from within vim (:e /path/to/other/file) and paste it
+  [Ref](https://stackoverflow.com/questions/4620672/copy-and-paste-content-from-one-file-to-another-file-in-vi)
+
 * Find the number of lines where a pattern is found
   :%s/<PATTERN_NAME>/gn
+
+* Do search and replace operation step-by-step from the current cursor line
+  :.,$s/wire/input/gc
 
 * Searching multiple words in Vim editor
   /search1\|search2
@@ -19,6 +34,14 @@
 Indenting a block of codes in Vim
 		V j j >
     Ref: [http://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi]
+
+Indenting a block of code visually
+  Select the block
+    V
+  Intent one shiftwidth (as mentioned in .vimrc)
+    >
+  Repeat the command to intent by one more shiftwidth (and repeat it if you want more)
+    .
 
 * Paste as it is in vim
 	* Do :set paste
