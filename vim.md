@@ -39,12 +39,15 @@ Indenting a block of codes in Vim
 Indenting a block of code visually
 
   Select the block
+
     V
   
   Intent one shiftwidth (as mentioned in .vimrc)
+    
     >
   
   Repeat the command to intent by one more shiftwidth (and repeat it if you want more)
+    
     .
 
 * Paste as it is in vim
