@@ -1,6 +1,27 @@
 ## TODO
 * Upload xournal config file
 
+## CondaHTTPError error using Anaconda
+  ERROR
+    $ conda install pytest
+    Solving environment: failed
+
+    CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://repo.anaconda.com/pkgs/pro/noarch/repodata.json.bz2>
+    Elapsed: -
+
+    An HTTP error occurred when trying to retrieve this URL.
+    HTTP errors are often intermittent, and a simple retry will get you on your way.
+
+    If your current network has https://www.anaconda.com blocked, please file
+    a support request with your network engineering team.
+
+    ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443): Max retries exceeded with url: /pkgs/pro/noarch/repodata.json.bz2 (Caused by ReadTimeoutError("HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443): Read timed out. (read timeout=9.15)",))',),)
+
+  SOLUTION
+    sudo ufw reset
+
+  [Ref](https://www.howtogeek.com/115116/how-to-configure-ubuntus-built-in-firewall/)
+
 ## Because teminal is your best friend
 
 ## Network related 
