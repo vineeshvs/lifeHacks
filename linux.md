@@ -1,6 +1,22 @@
 ## TODO
 * Upload xournal config file
 
+## Create a new user in Ubuntu using terminal
+	[Ref] https://askubuntu.com/questions/335961/create-default-home-directory-for-existing-user-in-terminal/546090
+		useradd gitepo
+		passwd gitrepo
+
+		mkdir /home/gitrepo                                      #to create the directory /home/gitrepo
+		cp /etc/skel/* /home/gitrepo                             #to copy copy files from the /home/gitrepo
+		chown -R gitrepo:gitrepo /home/gitrepo   #to change the owner of /home/gitrepo to the new user
+
+## Find and replace a string in all files
+	find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
+	[Ref](https://stackoverflow.com/questions/15402770/how-to-grep-and-replace)
+
+## Sort the files in a directory (and sub directories) in descending order of file size
+  find . -type f  -exec du -h {} + | sort -r -h
+
 ## CondaHTTPError error using Anaconda
   ERROR
     $ conda install pytest
@@ -128,6 +144,7 @@
 
 ## Cropping pdf in Ubuntu terminal
     pdfcrop --margins '0 0 0 -345' miss_vs_tick.pdf out.pdf
+			--margins "<left> <top> <right> <bottom>" (0 0 0 0)
 
 ### Saving terminal output to a file
 
