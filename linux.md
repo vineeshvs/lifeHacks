@@ -1,6 +1,14 @@
 ## TODO
 * Upload xournal config file
 
+## ctags
+  ctags -R --extra=+f *
+
+## Merge two files
+  ```console
+  cat file1.txt file2.txt > file_merged.txt
+  ```
+
 ## Create a new user in Ubuntu using terminal
 	[Ref] https://askubuntu.com/questions/335961/create-default-home-directory-for-existing-user-in-terminal/546090
 		useradd gitepo

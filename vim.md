@@ -1,3 +1,24 @@
+#### Search for strings with special characters in vim
+
+### Open two files simultaneously
+  With horizondally split windows
+    vim -o file1 file2
+  With vertically split windows
+    vim -O file1 file2
+
+### Copy and paste whole line
+  yy
+  p
+  P
+
+### Case insensitive search
+Use the \c escape sequence.
+  /\ccopyright
+
+Eg: Searching for '\n'
+```console
+/\\n
+```
 
 * Go to the last line
     G
