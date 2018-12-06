@@ -1,6 +1,14 @@
 ## TODO
 * Upload xournal config file
 
+## Count the number of files in a directory
+```console 
+ls -l . | egrep -c '^-' 
+```
+
+## Killing processes from terminal
+ps aux | grep -i vivado
+
 ## ctags
   ctags -R --extra=+f *
 

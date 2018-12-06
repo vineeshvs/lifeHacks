@@ -31,7 +31,7 @@ Eg: Searching for '\n'
     Copy from fist file (use visual mode and 'y') then open your second file from within vim (:e /path/to/other/file) and paste it
   [Ref](https://stackoverflow.com/questions/4620672/copy-and-paste-content-from-one-file-to-another-file-in-vi)
 
-* Find the number of lines where a pattern is found
+* (TODO Incorrect)Find the number of lines where a pattern is found
   :%s/<PATTERN_NAME>/gn
 
 * Do search and replace operation step-by-step from the current cursor line
