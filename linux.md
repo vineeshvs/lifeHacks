@@ -12,7 +12,7 @@ ps aux | grep -i vivado
 ## ctags
   ctags -R --extra=+f *
 
-## Merge two files
+## Merge (or concatenate) two files
   ```console
   cat file1.txt file2.txt > file_merged.txt
   ```

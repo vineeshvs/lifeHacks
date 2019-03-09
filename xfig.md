@@ -13,7 +13,7 @@
     ```console
     \begin{figure}[htbp]
     \begin{center}
-    \input{lec1-ring.pstex_t}
+    \input{lec1-ring.pdf_t}
     \caption{Constructing the two sequences.}
     \label{lec1:fig:ring}
     \end{center}
