@@ -1,3 +1,53 @@
+### Including .dot files (graphs mostly) in Latex document
+1. Convert to eps (See the example below)
+  dot -Tps2 cone_count2_counters.dot -o cone_count2_counters.eps
+2. Include the .eps in the document
+    \begin{figure}[htp]
+    \begin{center}
+      \includegraphics[width=0.9\textwidth]{myGraph}
+      \caption{My Caption}
+      \label{fig:myGraph}
+    \end{center}
+    \end{figure}
+[Ref](http://www.davehofmann.de/including-dot-graphs-as-postscript-files-in-latex-documents/)
+
+### Creating custom .dot files (You could draw good quality FSMs for publications using .dot files by converting them to .eps as mentioned above)
+    digraph  {
+    "mesi_isc_basic_fifo.rst";
+    "mesi_isc_basic_fifo.ptr_rd";
+    "mesi_isc_basic_fifo.clk";
+    "mesi_isc_basic_fifo.ptr_wr";
+    "mesi_isc_basic_fifo.status_full_o";
+    "mesi_isc_basic_fifo.fifo_depth";
+    "mesi_isc_basic_fifo.fifo_depth_decrease";
+    "mesi_isc_basic_fifo.rd_i";
+    "mesi_isc_basic_fifo.wr_i";
+    "mesi_isc_basic_fifo.fifo_depth_increase";
+    "mesi_isc_basic_fifo.status_full";
+    "mesi_isc_basic_fifo.rst" -> "mesi_isc_basic_fifo.ptr_wr";
+    "mesi_isc_basic_fifo.rst" -> "mesi_isc_basic_fifo.ptr_rd";
+    "mesi_isc_basic_fifo.rst" -> "mesi_isc_basic_fifo.status_full";
+    "mesi_isc_basic_fifo.ptr_rd" -> "mesi_isc_basic_fifo.fifo_depth";
+    "mesi_isc_basic_fifo.ptr_rd" -> "mesi_isc_basic_fifo.ptr_rd";
+    "mesi_isc_basic_fifo.clk" -> "mesi_isc_basic_fifo.ptr_wr";
+    "mesi_isc_basic_fifo.clk" -> "mesi_isc_basic_fifo.ptr_rd";
+    "mesi_isc_basic_fifo.clk" -> "mesi_isc_basic_fifo.status_full";
+    "mesi_isc_basic_fifo.ptr_wr" -> "mesi_isc_basic_fifo.ptr_wr";
+    "mesi_isc_basic_fifo.ptr_wr" -> "mesi_isc_basic_fifo.fifo_depth";
+    "mesi_isc_basic_fifo.fifo_depth" -> "mesi_isc_basic_fifo.status_full";
+    "mesi_isc_basic_fifo.fifo_depth_decrease" -> "mesi_isc_basic_fifo.status_full";
+    "mesi_isc_basic_fifo.rd_i" -> "mesi_isc_basic_fifo.fifo_depth_decrease";
+    "mesi_isc_basic_fifo.rd_i" -> "mesi_isc_basic_fifo.fifo_depth_increase";
+    "mesi_isc_basic_fifo.rd_i" -> "mesi_isc_basic_fifo.ptr_rd";
+    "mesi_isc_basic_fifo.wr_i" -> "mesi_isc_basic_fifo.ptr_wr";
+    "mesi_isc_basic_fifo.wr_i" -> "mesi_isc_basic_fifo.fifo_depth_decrease";
+    "mesi_isc_basic_fifo.wr_i" -> "mesi_isc_basic_fifo.fifo_depth_increase";
+    "mesi_isc_basic_fifo.fifo_depth_increase" -> "mesi_isc_basic_fifo.status_full";
+    "mesi_isc_basic_fifo.status_full" -> "mesi_isc_basic_fifo.status_full_o";
+    "mesi_isc_basic_fifo.status_full" -> "mesi_isc_basic_fifo.status_full";
+    }
+
+
 ### Installing the texlive full
     sudo apt install texlive-full
   [Read this before you do](https://tex.stackexchange.com/questions/134365/installation-of-texlive-full-on-ubuntu-12-04)
