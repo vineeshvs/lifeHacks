@@ -1,0 +1,11 @@
+Commonly used commands in Emacs
+
+### Search and replace in emacs
+```console
+Alt+x query-replace
+```
+[Ref](http://ergoemacs.org/emacs/emacs_find_replace.html)
+
+### Enable markdown mode (Syntax highlighting for .md and .markdown files)
+[Ref](https://jblevins.org/projects/markdown-mode/)
+

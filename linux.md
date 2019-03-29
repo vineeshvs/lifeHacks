@@ -1,6 +1,14 @@
 ## TODO
 * Upload xournal config file
 
+## Set LDFLAGS in terminal
+```console
+LDFLAGS="-L/usr/lib/x86_64-linux-gnu"
+```
+
+## Running out of disk space?
+Use the UI based tool Disk Usage Analyzer (for Ubuntu) to see who is taking how much space.
+
 ## Count the number of files in a directory
 ```console 
 ls -l . | egrep -c '^-' 

@@ -1,0 +1,15 @@
+Commonly used commands in Emacs
+
+### Legend
+M: Escape
+
+### Search and replace in emacs
+```console
+Alt+x query-replace
+```
+
+### Markdown syntax highlighting in emacs
+[Ref]{https://jblevins.org/projects/markdown-mode/)
+
+### Go to a line
+M-g M-g
