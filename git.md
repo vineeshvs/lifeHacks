@@ -18,8 +18,13 @@ In the local repo use the following command,
   ```
   [Ref](https://stackoverflow.com/questions/2432764/how-to-change-the-uri-url-for-a-remote-git-repository)
 
-  Eg:
+  Example 1:
   ```bash
   git remote set-url origin new.git.url/here
   ```
+  Example 2 (if it is a repo hosted in a local machine):
+  ```bash
+  git remote set-url origin username@10.107.111.111:~/repos/research.git
+  ```
+
 

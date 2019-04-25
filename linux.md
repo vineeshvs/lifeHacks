@@ -1,6 +1,28 @@
 ## TODO
 * Upload xournal config file
 
+## Find the number of occurances of a string using grep 
+grep -nr <string_to_be_searched> . --include=\*.txt | wc -l
+
+## Interactive find and replace in all files of particular extension (*.txt) in all directories and it's subdirectories and so on.
+
+shopt -s globstar
+vim -c 'set nomore' -c 'argdo %s/foo/bar/gc' -c xa **/*.txt 
+
+[Ref](https://stackoverflow.com/questions/55774223/interactive-find-and-replace-in-all-files-including-those-in-sub-directories-usi#comment98222980_55775069)
+
+## Simple grep searching in a file
+```console
+Eg: grep 'string_to_be_searched' filename.v
+```
+
+## Search for a string in a file and display the line with a match along with 3 lines before it and 2 lines after it.
+```console
+grep -B 3 -A 2 <string to be searched> <filename>
+Eg: grep -B 3 -A 2 foo README.txt
+```
+[Ref](https://stackoverflow.com/questions/9081/grep-a-file-but-show-several-surrounding-lines)
+
 ## Set LDFLAGS in terminal
 ```console
 LDFLAGS="-L/usr/lib/x86_64-linux-gnu"
@@ -305,6 +327,8 @@ ps aux | grep -i vivado
 ### Using find
     * Recursively look for files with a specific extension
         find $directory -type f -name \*.in
+	* Find a particular file in a directory and it's subdirectories. (Replace 'python.h' with the file require by you).
+        find $directory -type f -name python.h
 
 ### Installing Ubuntu (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
 

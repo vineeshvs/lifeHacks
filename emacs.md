@@ -1,7 +1,28 @@
 Commonly used commands in Emacs
 
+### Indent left by four spaces
+C-u -4 C-x TAB
+[Ref](https://stackoverflow.com/questions/2249955/emacs-shift-tab-to-left-shift-the-block/2252922)
+
+### Incremental search (search as you type)
+C-s
+* Move to next item: C-s
+* Move to previous item: C-r
+
+### Move between upper and lower buffers
+C-x o
+
+### Move between left and right buffers
+C-x <left or right arrow>
+
+### Disable/ re-enable (/Toggle) auto-indent
+M-x electric-indent-mode
+
 ### Legend
 M: Escape
+
+### Comment region
+M-x comment-region
 
 ### Search and replace in emacs
 ```console
