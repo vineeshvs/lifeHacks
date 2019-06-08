@@ -1,5 +1,18 @@
 ## TODO
-* Upload xournal config file
+
+## List all files except the ones with an extension
+
+	# Display all files except the one with .txt extension.
+	ls *.!(txt)
+
+## Find the free space available in home
+
+	cd ~/
+	df -Ph . | tail -1 | awk '{print $4}'
+
+## grep excluding multiple directorie
+
+	grep -inRw -E 'direct' . --exclude-dir={git,log,assets}
 
 ## Find the number of occurances of a string using grep 
 grep -nr <string_to_be_searched> . --include=\*.txt | wc -l
@@ -327,8 +340,12 @@ ps aux | grep -i vivado
 ### Using find
     * Recursively look for files with a specific extension
         find $directory -type f -name \*.in
-	* Find a particular file in a directory and it's subdirectories. (Replace 'python.h' with the file require by you).
-        find $directory -type f -name python.h
+	* Find a particular file in a directory and it's subdirectories. (Replace '\*.py' with the file require by you).
+        find $directory -type f -name \*.py
+	* Find a particular file in the particular directory.
+	  find <name_of_the_directory> -type f -name '*.extension'
+### TODO: INCORRECT: TO BE VERIFIED: Copy all files of particular extension (*.v) found in a directory (libs/) and it's sub-directories to another directory (.). 
+	find libs -name '*.v' -exec cp -prv '{}' . ';'
 
 ### Installing Ubuntu (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
 

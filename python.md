@@ -1,13 +1,124 @@
-26/10/15:
----------
+### iPython: "ImportError: No module named seaborn"
 
-* CLASSES AND METHODS:
-----------------------
+Solution: 
+
+	sudo python3 -m pip install seaborn
+
+### Pip error while opening Juypter-notebook
+#### Error
+AttributeError: '_NamespacePath' object has no attribute 'sort'
+#### Solution
+
+	sudo python3 -m pip install --upgrade pip
+	sudo python3 -m pip install --upgrade setuptools
+
+[Ref](https://github.com/googleapis/google-cloud-python/issues/2990)
+
+### Installation of pymc3
+
+	sudo python3 -m pip install pymc3
+
+#### Update pymc3 with the latest development version
+
+	sudo python3 -m pip install --upgrade git+https://github.com/pymc-devs/pymc3
+	
+[Reason](https://discourse.pymc.io/t/specifying-the-number-of-chains-chains-vs-njobs/595/4)
+
+### Error: No module named pip
+The error is for python 3.
+##### Solution
+
+	curl -sS https://bootstrap.pypa.io/get-pip.py | sudo python3
+
+[Ref](https://stackoverflow.com/questions/49478573/pip3-install-not-working-no-module-named-pip-vendor-pkg-resources)
+
+### Removing a package which was installed using distutils, and reinstalling the latest one 
+Example 1: scikit-learn
+
+#### Uninstall old one
+
+	cd /usr/local/lib/python3.5/dist-packages
+	sudo rm -rf sklearn-0.0.dist-info/
+	cd /usr/lib/python3/dist-packages
+	rm -rf scikit_learn-0.17.egg-info
+	
+[Ref](https://stackoverflow.com/questions/402359/how-do-you-uninstall-a-python-package-that-was-installed-using-distutils)
+
+#### Reinstall new ones
+
+	sudo python3 -m pip install scikit-learn
+
+##### Possible error
+
+	pip3 install not working - No module named 'pip._vendor.pkg_resources'
+
+##### Solution
+	
+	curl -sS https://bootstrap.pypa.io/get-pip.py | sudo python3
+
+[Ref](https://stackoverflow.com/questions/49478573/pip3-install-not-working-no-module-named-pip-vendor-pkg-resources)
+
+Example2: scipy
+
+	cd /usr/lib/python3/dist-packages/
+	rm -rc scipy*
+	sudo python3 -m pip install scipy
+
+### List the current active Jupyter-notebook files
+#### Method 1
+
+	pgrep -a jupyter
+	9354 /usr/bin/python3 /home/vineesh/.local/bin/jupyter-notebook bayesian_linear_regression.ipynb
+
+	jupyter-notebook list
+
+* Use the active port numbers from the result of above command to close each notebooks. Examples below
+
+		jupyter notebook stop 8888
+		jupyter notebook stop 8890
+		jupyter notebook stop 8889
+
+### Changing the version of Python used by jupyter-notebook
+Why? Sometimes you install packages in Python3 and Juypter-notebook will be using Python2. Hence it will keep showing the error of type "unable to import module xxx"
+
+* Find out the location of Juypter-notebook script
+$ which jupyter-notebook 
+/home/vineesh/.local/bin/jupyter-notebook
+
+* If you want juypter-notebook to use Python 3, open the above file,
+	vim /home/vineesh/.local/bin/jupyter-notebook
+  and edit the first line to the following,
+    #!/usr/bin/python3
+
+Afterwards, if you find a module misssing error, install it (for Python3) using
+	sudo python3 -m pip install <name_of_the_module>
+
+If you don't have Python3 pip, install it using the command in Ubuntu terminal.
+	$ sudo apt-get install python3-pip
+
+### Installing packages in Pyton 3
+Example 1: python3 -m pip install matplotlib
+Note: *pip install <software_name>* gives some error related to main.
+
+Example 2:
+* Error
+$ pip install seaborn
+Traceback (most recent call last):
+  File "/usr/bin/pip", line 9, in <module>
+    from pip import main
+ImportError: cannot import name main
+
+* Solution
+$ python --version
+Python 2.7.12
+$ python2 -m pip install seaborn
+
+### CLASSES AND METHODS:
 
 * Possible conventions include capitalizing method names, prefixing data attribute names with a small unique string (perhaps just an underscore), or using verbs for methods and nouns for data attributes.
 
 *  It is not necessary that the function definition is textually enclosed in the class definition: assigning a function object to a local variable in the class is also ok
-# Function defined outside the class
+#### Function defined outside the class
 def f1(self, x, y):
     return min(x, x+y)
 class C:
@@ -48,11 +159,9 @@ class DerivedClassName(modname.BaseClassName):
 * Useful for Verilog parsing: 
 A piece of Python code that expects a particular abstract data type can often be passed a class that emulates the methods of that data type instead. For instance, if you have a function that formats some data from a file object, you can define a class with methods read() and readline() that get the data from a string buffer instead, and pass it as an argument.
 
-* PYTHON STYLE GUIDE:
----------------------
+### PYTHON STYLE GUIDE:
 * https://www.python.org/dev/peps/pep-0008/
 
-* COMMENTING STYLES:
--------------------
-    * Use """function_details""" for adding comments for functions and use '''text_to_be_commented ''' for block comments which might include functions to avoid overlapping and possible errors
+### COMMENTING STYLES:
+* Use """function_details""" for adding comments for functions and use '''text_to_be_commented ''' for block comments which might include functions to avoid overlapping and possible errors
 
