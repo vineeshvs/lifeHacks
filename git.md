@@ -1,4 +1,13 @@
-### Ignore previously tracked files in git
+#### Ignore previously tracked files in git
+TODO
+
+#### See the changes in a particular commit
+	
+	git show 24c3ccca81fa5242496d47be763369a822560890
+	
+[Ref](https://stackoverflow.com/questions/17563726/how-to-see-the-changes-in-a-git-commit)
+
+Note: The changes in that commit will open in Vim. Search for the name of your folder to see if your friend has changed your folder during that commit.
 
 #### Applying .gitignore to commited files.
 

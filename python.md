@@ -1,3 +1,9 @@
+### Run a local python script in a remote machine
+
+	ssh username@xxx.xxx.xxx.xxx python < test_python_ssh.py -
+Example 
+	ssh vineeshvs@10.107.90.44 python < filter_wp.py -
+
 ### iPython: "ImportError: No module named seaborn"
 
 Solution: 

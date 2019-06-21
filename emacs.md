@@ -1,5 +1,13 @@
 Commonly used commands in Emacs
 
+### Split window horizondally
+
+	C-x 4 f
+	
+### Split window vertically
+
+	C-x 3 f
+
 ### Indent a region interactively
 
 	# Select the region to be indented.

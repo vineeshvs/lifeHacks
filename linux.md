@@ -1,11 +1,3 @@
-# Test 1
-
-Test 2
-------
-
-Test 3
-======
-
 ## TODO
 
 ## List all files except the ones with an extension
