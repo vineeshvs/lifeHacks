@@ -1,101 +1,164 @@
-## TODO
+## Copy all files of a particular extension in a directory and it's sub-directories to another folder
+
+```console
+mkidr an_empty_folder
+find $directory -type f -name \*.txt | xargs cp -t an_empty_folder
+```
+
+## Delete the bookmarks to folders in Ubuntu file browser
+
+Use the following command, while you are in file-browser to remove the bookmarks using ```-``` symbol.
+```console
+Ctrl + b
+```
+
+## Find the location where a package is installed
+```console
+dpkg -L <package_name>
+```
+
+Example:
+```console
+dpkg -L vim
+```
+
+[Ref](https://stackoverflow.com/questions/10340281/where-is-ubuntu-storing-installed-programs)
 
 ## List all files except the ones with an extension
 
-	# Display all files except the one with .txt extension.
-	ls *.!(txt)
+```console
+# Display all files except the one with .txt extension.
+ls *.!(txt)
+```
 
-## Find the free space available in home
+## Find the free space available in /home
 
-	cd ~/
-	df -Ph . | tail -1 | awk '{print $4}'
+```console
+cd ~/
+df -Ph . | tail -1 | awk '{print $4}'
+```
 
-## grep excluding multiple directorie
+## grep excluding multiple directories
 
-	grep -inRw -E 'direct' . --exclude-dir={git,log,assets}
+```console
+grep -inRw -E 'direct' . --exclude-dir={git,log,assets}
+```
 
 ## Find the number of occurances of a string using grep 
+
+```console
 grep -nr <string_to_be_searched> . --include=\*.txt | wc -l
+```
 
 ## Interactive find and replace in all files of particular extension (*.txt) in all directories and it's subdirectories and so on.
 
+```console
 shopt -s globstar
 vim -c 'set nomore' -c 'argdo %s/foo/bar/gc' -c xa **/*.txt 
+```
 
 [Ref](https://stackoverflow.com/questions/55774223/interactive-find-and-replace-in-all-files-including-those-in-sub-directories-usi#comment98222980_55775069)
 
 ## Simple grep searching in a file
+
 ```console
 Eg: grep 'string_to_be_searched' filename.v
 ```
 
 ## Search for a string in a file and display the line with a match along with 3 lines before it and 2 lines after it.
+
 ```console
 grep -B 3 -A 2 <string to be searched> <filename>
 Eg: grep -B 3 -A 2 foo README.txt
 ```
+
 [Ref](https://stackoverflow.com/questions/9081/grep-a-file-but-show-several-surrounding-lines)
 
 ## Set LDFLAGS in terminal
+
 ```console
 LDFLAGS="-L/usr/lib/x86_64-linux-gnu"
 ```
 
 ## Running out of disk space?
+
 Use the UI based tool Disk Usage Analyzer (for Ubuntu) to see who is taking how much space.
 
 ## Count the number of files in a directory
+
 ```console 
 ls -l . | egrep -c '^-' 
 ```
 
 ## Killing processes from terminal
+
+```console
 ps aux | grep -i vivado
+```
 
 ## ctags
-  ctags -R --extra=+f *
+  
+```console
+ctags -R --extra=+f *
+```
 
 ## Merge (or concatenate) two files
-  ```console
-  cat file1.txt file2.txt > file_merged.txt
-  ```
+
+```console
+cat file1.txt file2.txt > file_merged.txt
+```
 
 ## Create a new user in Ubuntu using terminal
-	[Ref] https://askubuntu.com/questions/335961/create-default-home-directory-for-existing-user-in-terminal/546090
-		useradd gitepo
-		passwd gitrepo
 
-		mkdir /home/gitrepo                                      #to create the directory /home/gitrepo
-		cp /etc/skel/* /home/gitrepo                             #to copy copy files from the /home/gitrepo
-		chown -R gitrepo:gitrepo /home/gitrepo   #to change the owner of /home/gitrepo to the new user
+```console
+useradd gitepo
+passwd gitrepo
+mkdir /home/gitrepo                                      #to create the directory /home/gitrepo
+cp /etc/skel/* /home/gitrepo                             #to copy copy files from the /home/gitrepo
+chown -R gitrepo:gitrepo /home/gitrepo   #to change the owner of /home/gitrepo to the new user
+```
+
+[Ref] https://askubuntu.com/questions/335961/create-default-home-directory-for-existing-user-in-terminal/546090
 
 ## Find and replace a string in all files
-	find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
-	[Ref](https://stackoverflow.com/questions/15402770/how-to-grep-and-replace)
+
+
+```console
+find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
+```
+
+[Ref](https://stackoverflow.com/questions/15402770/how-to-grep-and-replace)
 
 ## Sort the files in a directory (and sub directories) in descending order of file size
   find . -type f  -exec du -h {} + | sort -r -h
 
 ## CondaHTTPError error using Anaconda
   ERROR
-    $ conda install pytest
-    Solving environment: failed
 
-    CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://repo.anaconda.com/pkgs/pro/noarch/repodata.json.bz2>
-    Elapsed: -
+```console
+$ conda install pytest
+Solving environment: failed
 
-    An HTTP error occurred when trying to retrieve this URL.
-    HTTP errors are often intermittent, and a simple retry will get you on your way.
+CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://repo.anaconda.com/pkgs/pro/noarch/repodata.json.bz2>
+Elapsed: -
 
-    If your current network has https://www.anaconda.com blocked, please file
-    a support request with your network engineering team.
+An HTTP error occurred when trying to retrieve this URL.
+HTTP errors are often intermittent, and a simple retry will get you on your way.
 
-    ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443): Max retries exceeded with url: /pkgs/pro/noarch/repodata.json.bz2 (Caused by ReadTimeoutError("HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443): Read timed out. (read timeout=9.15)",))',),)
+If your current network has https://www.anaconda.com blocked, please file
+a support request with your network engineering team.
 
-  SOLUTION
-    sudo ufw reset
+ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443): Max retries exceeded with url: /pkgs/pro/noarch/repodata.json.bz2 (Caused by ReadTimeoutError("HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443): Read timed out. (read timeout=9.15)",))',),)
+```
 
-  [Ref](https://www.howtogeek.com/115116/how-to-configure-ubuntus-built-in-firewall/)
+
+SOLUTION
+
+```console
+sudo ufw reset
+```
+
+[Ref](https://www.howtogeek.com/115116/how-to-configure-ubuntus-built-in-firewall/)
 
 ## Because teminal is your best friend
 
@@ -255,7 +318,13 @@ ps aux | grep -i vivado
 		kill -9 <pid>
 ### Killing <defunc> processes in terminal
     ps -ef | grep defunct | grep -v grep | cut -b8-20 | xargs kill -9
-  [Ref](https://askubuntu.com/questions/201303/what-is-a-defunct-process-and-why-doesnt-it-get-killed)
+	[Ref](https://askubuntu.com/questions/201303/what-is-a-defunct-process-and-why-doesnt-it-get-killed
+	Example: Kill all the MATLAB processes running in your Ubuntu.
+	ps -ef | grep MATLAB | grep -v grep | cut -b8-20 | xargs kill -9
+	Note: If there are no processes it will give an error related to the usage of _kill_
+
+
+
 
 ### Removing proxy in Ubuntu terminal
     unset http_proxy

@@ -1,12 +1,32 @@
 Commonly used commands in Emacs
 
+### Move current buffer to a new window (called 'frames' in Emacs)
+
+```console
+C-x 5 2
+```
+
+[Ref](https://stackoverflow.com/questions/57304580/how-to-move-an-emacs-buffer-to-a-new-window/57313435#57313435)
+
+### Reload a file in the buffer. 
+
+```console
+M-x revert-buffer
+```
+[Ref](https://emacs.stackexchange.com/questions/169/how-do-i-reload-a-file-in-a-buffer)
+
+### Newline.
+
+
 ### Split window horizondally
 
-	C-x 4 f
+```console
+C-x 2
+```
 	
 ### Split window vertically
 
-	C-x 3 f
+	C-x 3
 
 ### Indent a region interactively
 

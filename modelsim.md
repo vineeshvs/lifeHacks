@@ -1,3 +1,10 @@
+##### Seeing ? symbols in the .lst file?
+Solution: 
+
+* Add those signals to the wave window.
+* Save that wave format into a .do file
+* In the modelsim tcl file, load that .do file.
+
 ##### View schematic of a VHDL file in Modelsim
 * Go to SIM tab in the panel after simulation
 * Right click on the top module name and ADD -> TO SCHEMATIC -> SELECTED REGION
