@@ -1,6 +1,18 @@
 Commonly used commands in Emacs
 
-### Move current buffer to a new window (called 'frames' in Emacs)
+#### Change all letters in the selected region to upper-case
+
+```console
+C-x C-u
+```
+
+#### Change all letters in the selected region to lower-case
+
+```console
+C-x C-l
+```
+
+#### Move current buffer to a new window (called 'frames' in Emacs)
 
 ```console
 C-x 5 2
@@ -8,56 +20,56 @@ C-x 5 2
 
 [Ref](https://stackoverflow.com/questions/57304580/how-to-move-an-emacs-buffer-to-a-new-window/57313435#57313435)
 
-### Reload a file in the buffer. 
+#### Reload a file in the buffer. 
 
 ```console
 M-x revert-buffer
 ```
 [Ref](https://emacs.stackexchange.com/questions/169/how-do-i-reload-a-file-in-a-buffer)
 
-### Newline.
+#### Newline.
 
 
-### Split window horizondally
+#### Split window horizondally
 
 ```console
 C-x 2
 ```
 	
-### Split window vertically
+#### Split window vertically
 
 	C-x 3
 
-### Indent a region interactively
+#### Indent a region interactively
 
 	# Select the region to be indented.
 	C-x <TAB>
 	# Use arrows to indent interactively.
 	# Press enter when you are done with the required indentation.
 
-### Repeat the last operation
+#### Repeat the last operation
 TODO
 
-### Search for a full-word
+#### Search for a full-word
 
 M-x isearch-forward-regexp RET \_<axi\_> RET
 
-### Save current buffer with another name (Equivalent to 'save as')
+#### Save current buffer with another name (Equivalent to 'save as')
 
 	C-x C-w
 
-### Search using regexp
+#### Search using regexp
 
 Example showing the search for two strings DEBUG and ERROR
 
 	M-x occur RET 
 	DEBUG\|ERROR.
 
-### List all opened files in Emacs
+#### List all opened files in Emacs
 	
 	C-x C-b
 
-### Replacements with regexp in Emacs
+#### Replacements with regexp in Emacs
 
 * Ask permission to replace everytime
 
@@ -67,47 +79,47 @@ Example showing the search for two strings DEBUG and ERROR
 
 		replace-regexp
 
-### Indent left by four spaces
+#### Indent left by four spaces
 
 	C-u -4 C-x TAB
 [Ref](https://stackoverflow.com/questions/2249955/emacs-shift-tab-to-left-shift-the-block/2252922)
 
-### Incremental search (search as you type)
+#### Incremental search (search as you type)
 
 	C-s
 * Move to next item: C-s
 * Move to previous item: C-r
 
-### Move between upper and lower buffers
+#### Move between upper and lower buffers
 C-x o
 
-### Move between left and right buffers
+#### Move between left and right buffers
 C-x <left or right arrow>
 
-### Disable/ re-enable (/Toggle) auto-indent
+#### Disable/ re-enable (/Toggle) auto-indent
 M-x electric-indent-mode
 
-### Legend
+#### Legend
 M: Escape
 
-### Comment region
+#### Comment region
 M-x comment-region
 
-### Search and replace in emacs
+#### Search and replace in emacs
 ```console
 Alt+x query-replace
 ```
 
-### Markdown syntax highlighting in emacs
+#### Markdown syntax highlighting in emacs
 [Ref]{https://jblevins.org/projects/markdown-mode/)
 
-### Go to a line
+#### Go to a line
 M-g M-g
 
-### Indentation for a single line
+#### Indentation for a single line
 C-i
 
-### Undo 
+#### Undo 
 Ctrl + /
 
 Hold down Alt, type 2 0 0, then press CTRL+x u.

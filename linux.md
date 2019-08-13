@@ -1,18 +1,18 @@
-## Copy all files of a particular extension in a directory and it's sub-directories to another folder
+### Copy all files of a particular extension in a directory and it's sub-directories to another folder
 
 ```console
 mkidr an_empty_folder
 find $directory -type f -name \*.txt | xargs cp -t an_empty_folder
 ```
 
-## Delete the bookmarks to folders in Ubuntu file browser
+### Delete the bookmarks to folders in Ubuntu file browser
 
 Use the following command, while you are in file-browser to remove the bookmarks using ```-``` symbol.
 ```console
 Ctrl + b
 ```
 
-## Find the location where a package is installed
+### Find the location where a package is installed
 ```console
 dpkg -L <package_name>
 ```
@@ -24,33 +24,33 @@ dpkg -L vim
 
 [Ref](https://stackoverflow.com/questions/10340281/where-is-ubuntu-storing-installed-programs)
 
-## List all files except the ones with an extension
+### List all files except the ones with an extension
 
 ```console
 # Display all files except the one with .txt extension.
 ls *.!(txt)
 ```
 
-## Find the free space available in /home
+### Find the free space available in /home
 
 ```console
 cd ~/
 df -Ph . | tail -1 | awk '{print $4}'
 ```
 
-## grep excluding multiple directories
+### grep excluding multiple directories
 
 ```console
 grep -inRw -E 'direct' . --exclude-dir={git,log,assets}
 ```
 
-## Find the number of occurances of a string using grep 
+### Find the number of occurances of a string using grep 
 
 ```console
 grep -nr <string_to_be_searched> . --include=\*.txt | wc -l
 ```
 
-## Interactive find and replace in all files of particular extension (*.txt) in all directories and it's subdirectories and so on.
+### Interactive find and replace in all files of particular extension (*.txt) in all directories and it's subdirectories and so on.
 
 ```console
 shopt -s globstar
@@ -59,13 +59,13 @@ vim -c 'set nomore' -c 'argdo %s/foo/bar/gc' -c xa **/*.txt
 
 [Ref](https://stackoverflow.com/questions/55774223/interactive-find-and-replace-in-all-files-including-those-in-sub-directories-usi#comment98222980_55775069)
 
-## Simple grep searching in a file
+### Simple grep searching in a file
 
 ```console
 Eg: grep 'string_to_be_searched' filename.v
 ```
 
-## Search for a string in a file and display the line with a match along with 3 lines before it and 2 lines after it.
+### Search for a string in a file and display the line with a match along with 3 lines before it and 2 lines after it.
 
 ```console
 grep -B 3 -A 2 <string to be searched> <filename>
@@ -74,41 +74,41 @@ Eg: grep -B 3 -A 2 foo README.txt
 
 [Ref](https://stackoverflow.com/questions/9081/grep-a-file-but-show-several-surrounding-lines)
 
-## Set LDFLAGS in terminal
+### Set LDFLAGS in terminal
 
 ```console
 LDFLAGS="-L/usr/lib/x86_64-linux-gnu"
 ```
 
-## Running out of disk space?
+### Running out of disk space?
 
 Use the UI based tool Disk Usage Analyzer (for Ubuntu) to see who is taking how much space.
 
-## Count the number of files in a directory
+### Count the number of files in a directory
 
 ```console 
 ls -l . | egrep -c '^-' 
 ```
 
-## Killing processes from terminal
+### Killing processes from terminal
 
 ```console
 ps aux | grep -i vivado
 ```
 
-## ctags
+### ctags
   
 ```console
 ctags -R --extra=+f *
 ```
 
-## Merge (or concatenate) two files
+### Merge (or concatenate) two files
 
 ```console
 cat file1.txt file2.txt > file_merged.txt
 ```
 
-## Create a new user in Ubuntu using terminal
+### Create a new user in Ubuntu using terminal
 
 ```console
 useradd gitepo
@@ -120,7 +120,7 @@ chown -R gitrepo:gitrepo /home/gitrepo   #to change the owner of /home/gitrepo t
 
 [Ref] https://askubuntu.com/questions/335961/create-default-home-directory-for-existing-user-in-terminal/546090
 
-## Find and replace a string in all files
+### Find and replace a string in all files
 
 
 ```console
@@ -129,10 +129,10 @@ find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
 
 [Ref](https://stackoverflow.com/questions/15402770/how-to-grep-and-replace)
 
-## Sort the files in a directory (and sub directories) in descending order of file size
+### Sort the files in a directory (and sub directories) in descending order of file size
   find . -type f  -exec du -h {} + | sort -r -h
 
-## CondaHTTPError error using Anaconda
+### CondaHTTPError error using Anaconda
   ERROR
 
 ```console
@@ -160,30 +160,30 @@ sudo ufw reset
 
 [Ref](https://www.howtogeek.com/115116/how-to-configure-ubuntus-built-in-firewall/)
 
-## Because teminal is your best friend
+### Because teminal is your best friend
 
-## Network related 
-### If 'Enable Wi-Fi option is disabled' in Ubuntun 16.06
+### Network related 
+#### If 'Enable Wi-Fi option is disabled' in Ubuntun 16.06
     rfkill unblock all
     [Ref](https://askubuntu.com/questions/152157/enable-wireless-option-is-disabled-in-network-settings)
 
-### If wifi icon is not getting displayed in Ubuntu 16.04
+#### If wifi icon is not getting displayed in Ubuntu 16.04
     nohup nm-applet &
 
-### Ubuntu network error (Device not ready)
+#### Ubuntu network error (Device not ready)
   sudo service network-manager restart
 
-### Ubuntu network error (Not authorized to control networking)
+#### Ubuntu network error (Not authorized to control networking)
   sudo usermod -G netdev -a vineesh
   or
   sudo su
   usermod -G netdev -a vineesh
 
-### What to do when the wifi options are not listed and two 'wired' connections are displayed instead of one 'wired' and one 'wireless'
+#### What to do when the wifi options are not listed and two 'wired' connections are displayed instead of one 'wired' and one 'wireless'
     systemctl restart NetworkManager.service
     Ref: (https://askubuntu.com/questions/789843/wired-connection-icon-is-displayed-instead-of-wifi-icon-ubuntu-16-04)
 
-### Ubuntu Proxy Settings (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
+#### Ubuntu Proxy Settings (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
     Following is the way to get Ubuntu working under IITB proxy with apt-line installation
         For Ubuntu 11.04 and below, go to network proxy.
         Set proxy either netmon.iitb.ac.in port 80 or www.aero.iitb.ac.in port 8081 for all protocols.
@@ -205,13 +205,13 @@ sudo ufw reset
         Acquire::http::proxy "P";
         Acquire::https::proxy "P";
 
-        ###### P is from previous step
-        #### Notice: No FTP proxy
+        ######## P is from previous step
+        ##### Notice: No FTP proxy
                     
 
         For /etc/environment, 
 
-        #### Something about PATH variable here
+        ##### Something about PATH variable here
 
         http_proxy=P
         https_proxy=P
@@ -222,7 +222,7 @@ sudo ufw reset
         Save files, restart Terminal and you are done!!!
 
 
-### Ubuntu Repository Settings (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
+#### Ubuntu Repository Settings (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
 
     To use IITB apt software repositories in ubuntu, follow the steps:
 
@@ -235,7 +235,7 @@ sudo ufw reset
 
 	A file will open in gedit. Replace all the contents by 
 
-    ########## Warning: Instead of maverick, use the name of your distribution in following lines
+    ############# Warning: Instead of maverick, use the name of your distribution in following lines
     # For 12.04, its 'precise' 
 
     deb ftp://ftp.iitb.ac.in/os/ubuntu/archives/ maverick main restricted
@@ -260,15 +260,15 @@ sudo ufw reset
     Now you can install softwares from IITB repositories. They are very fast as compared to HTTP repositories. 
 
 
-## Cropping pdf in Ubuntu terminal
+### Cropping pdf in Ubuntu terminal
   Setting proxy in terminal when you have special characters in the username and passowrd
   [Ref](https://www.cyberciti.biz/faq/unix-linux-export-variable-http_proxy-with-special-characters/)
 
-## Cropping pdf in Ubuntu terminal
+### Cropping pdf in Ubuntu terminal
     pdfcrop --margins '0 0 0 -345' miss_vs_tick.pdf out.pdf
 			--margins "<left> <top> <right> <bottom>" (0 0 0 0)
 
-### Saving terminal output to a file
+#### Saving terminal output to a file
 
               || visible in terminal ||   visible in file   || existing
       Syntax  ||  StdOut  |  StdErr  ||  StdOut  |  StdErr  ||   file   
@@ -293,30 +293,30 @@ sudo ufw reset
 
 [Credits](https://askubuntu.com/questions/420981/how-do-i-save-terminal-output-to-a-file)
 
-### Ignore files in git
+#### Ignore files in git
   git rm --cached *.out *.log *.nav *.snm *.toc
 
-### Enable and disable auto-indenting in Vim
+#### Enable and disable auto-indenting in Vim
   Enable
     :set nopaste
   Disable
     :set paste
 
-### Indenting in vim 
+#### Indenting in vim 
   Go to visual mode, select text and press >
 
-### Paste without indenting in Vim
+#### Paste without indenting in Vim
   :set paste
   Shift + Ctrl + v
 
-### Cropping away white spaces in a pdf file
+#### Cropping away white spaces in a pdf file
     pdfcrop --margins '5 10 20 30' wrap.pdf wrap_cropped.pdf 
     [Ref](https://askubuntu.com/questions/124692/command-line-tool-to-crop-pdf-files)
 
-### Killing vsim in Modelsim
+#### Killing vsim in Modelsim
 		ps -ef | grep 'vsim'
 		kill -9 <pid>
-### Killing <defunc> processes in terminal
+#### Killing <defunc> processes in terminal
     ps -ef | grep defunct | grep -v grep | cut -b8-20 | xargs kill -9
 	[Ref](https://askubuntu.com/questions/201303/what-is-a-defunct-process-and-why-doesnt-it-get-killed
 	Example: Kill all the MATLAB processes running in your Ubuntu.
@@ -326,29 +326,29 @@ sudo ufw reset
 
 
 
-### Removing proxy in Ubuntu terminal
+#### Removing proxy in Ubuntu terminal
     unset http_proxy
     unset https_proxy
   [Ref](https://askubuntu.com/questions/465198/how-do-i-temporarily-remove-proxy-settings)
 
-### Hibernate Ubuntu 16.04 machine
+#### Hibernate Ubuntu 16.04 machine
   Choice 1:
   sudo systemctl hibernate
   
   Choice 2:
   sudo pm-hibernate
     
-### What to do when Ubuntu GUI hangs and not even terminal opens
+#### What to do when Ubuntu GUI hangs and not even terminal opens
     * Go to command-line mode. (Press C-A-F3 in Thinkpad E470)
     * ps -u
     * Check the pid of the process which created the trouble (Eg: 6779)
     * kill -9 9779
     * Do at your own risk because you will be in trouble, if you kill the wrong process
 
-### 'Save as' in Vim and edit the new file
+#### 'Save as' in Vim and edit the new file
     :saveas newFileName
 
-### List all active processes in the machine in terminal
+#### List all active processes in the machine in terminal
     top
     <press 'u'>
     <Enter your username to see the processes you are running>
@@ -356,17 +356,17 @@ sudo ufw reset
     top -u
     <Directly display the processes you are running>
 
-### Include graphics in your README files using ASCII images
+#### Include graphics in your README files using ASCII images
     Ref: http://picascii.com/
-### Sort files based on modification date 
+#### Sort files based on modification date 
 	ll -t
-### Sort files based on size
+#### Sort files based on size
 	ls -lSr
-### Check folder size in Ubuntu
+#### Check folder size in Ubuntu
     du -sh /path/to/directory
-### Check the disk space usage by a particular user
+#### Check the disk space usage by a particular user
     df /home/users/vineeshvs/
-### Shorten the bash command line prompt
+#### Shorten the bash command line prompt
 	* Add the following section to '~/.bashrc'
 		```bash
 		if [ "$color_prompt" = yes ]; then
@@ -377,7 +377,7 @@ sudo ufw reset
 		```bash
 	* [Ref](http://askubuntu.com/questions/145618/how-can-i-shorten-my-command-line-bash-prompt)
 
-### Installing Java to open Java enabled webpages in Firefox
+#### Installing Java to open Java enabled webpages in Firefox
 	* Tested in Ubuntu 16
 	* sudo apt-get install icedtea-plugin
 	* sudo apt-get install default-jre
@@ -389,7 +389,7 @@ sudo ufw reset
 		* Go to the website http://web.cs.iastate.edu/~prabhu/Tutorial/PIPELINE/DLXimplem.html
 		* Check if you can see the Java enabled section
 	* [Ref](http://askubuntu.com/questions/354361/how-to-install-the-java-plugin-for-firefox/354406)
-### Using GREP
+#### Using GREP
     *grep to search inside files in the same directory. Search for the whole word <-w>
     	```bash 
 		grep -nrw '.' -e "Input" 
@@ -406,17 +406,17 @@ sudo ufw reset
 		sudo apt-get install pdfgrep
 		find /path -iname '*.pdf' -exec pdfgrep pattern {} +
 		find . -iname '*.pdf' -exec pdfgrep <string_to_be_searched> {} +
-### Using find
+#### Using find
     * Recursively look for files with a specific extension
         find $directory -type f -name \*.in
 	* Find a particular file in a directory and it's subdirectories. (Replace '\*.py' with the file require by you).
         find $directory -type f -name \*.py
 	* Find a particular file in the particular directory.
 	  find <name_of_the_directory> -type f -name '*.extension'
-### TODO: INCORRECT: TO BE VERIFIED: Copy all files of particular extension (*.v) found in a directory (libs/) and it's sub-directories to another directory (.). 
+#### TODO: INCORRECT: TO BE VERIFIED: Copy all files of particular extension (*.v) found in a directory (libs/) and it's sub-directories to another directory (.). 
 	find libs -name '*.v' -exec cp -prv '{}' . ';'
 
-### Installing Ubuntu (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
+#### Installing Ubuntu (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
 
     You can either install Ubuntu by downloading the ISO file and creating a bootable device and create a disk partition, OR you can download the Windows Installer and install directly from windows.
 
@@ -424,17 +424,17 @@ sudo ufw reset
 
     You then also need to set up proxy settings if you are within the IIT Bombay network and repository settings if you need to install softwares and packages fast:
 
-### Tar in terminal
+#### Tar in terminal
     * Compress
 		tar -zcvf archive_name.tar.gz folder_to_compress
 	* Uncompress
 		tar xvzf archive_name.tar.gz
     tar xf archive_name.xz
 
-### 'Cannot open display error'
+#### 'Cannot open display error'
 	* Use the following command
 		DISPLAY=:0
-### Error: exit status 1: Autolaunch error: X11 initialization failed. Cannot open display:
+#### Error: exit status 1: Autolaunch error: X11 initialization failed. Cannot open display:
     * Solution:
         Added the following lines to ~/.bashrc
             xhost +
@@ -445,7 +445,7 @@ sudo ufw reset
         Whenever I open a terminal it will show the warning given below
             access control disabled, clients can connect from any host
 
-### Mount and unmount so file in termial
+#### Mount and unmount so file in termial
     Mount
         sudo mount -o loop /home/vineeshvs/software_installations/SPEC/cpu2006-1.2.iso /media/iso
         Ignore the error
@@ -453,18 +453,18 @@ sudo ufw reset
     Unmount
         sudo umount /media/iso/
 
-### Open an application without going to the directory of the executable: How to append path variable permanently in .bashrc file
+#### Open an application without going to the directory of the executable: How to append path variable permanently in .bashrc file
 	```bash     
 	#Adding path for Modelsim
 	export PATH=$PATH:/home/    vineeshvs/altera/13.1/modelsim_ase/bin
 	```bash
 
-### Change the extension of all files in a folder from .txt to .md
+#### Change the extension of all files in a folder from .txt to .md
 	```bash	
 	for old in *.txt; do mv $old `basename $old .txt`.md; done
 	```
 
-### Installing newer version of GCC and making it default
+#### Installing newer version of GCC and making it default
 
 
 	* Revert back to previous version of gcc in case of problems (using *update_alternatives*)
@@ -503,7 +503,7 @@ sudo ufw reset
 	```bash 
 	ls /usr/bin/gcc -l
 	```
-### **Installing software using .tar.bz2 file**
+#### **Installing software using .tar.bz2 file**
 	
 	```bash	
 	tar jvxf whatever.tar.bz2.
@@ -512,7 +512,7 @@ sudo ufw reset
 	make.
 	sudo make install.
 	```
-### **Installing software using .tar.gz file**
+#### **Installing software using .tar.gz file**
 	
 	```bash	
 	tar xzf whatever.tar.gz
@@ -521,10 +521,10 @@ sudo ufw reset
 	make.
 	sudo make install.
 	```
-### Unzip in terminal
+#### Unzip in terminal
 	unzip file_name.zip
 
-### How to get virtualenv to use dist-packages on Ubuntu? ((**Changing $PYTHONPATH**)
+#### How to get virtualenv to use dist-packages on Ubuntu? ((**Changing $PYTHONPATH**)
 
 	Note: The common directories where the Python packages will be installed are the following
 	
@@ -552,12 +552,12 @@ sudo ufw reset
 	![Ref1](http://stackoverflow.com/questions/19210964/how-to-get-virtualenv-to-use-dist-packages-on-ubuntu)
 	![Finding Python packages](https://leemendelowitz.github.io/blog/how-does-python-find-packages.html)
 
-### How to remove Python package from terminal (Eg: Removing numpy package)
+#### How to remove Python package from terminal (Eg: Removing numpy package)
 
 	```bash
 	sudo apt-get remove python-numpy
 	```
-### Error: Error deleting partition /dev/sdb2: Command-line 
+#### Error: Error deleting partition /dev/sdb2: Command-line 
   Solution: sudo gdisk /dev/dsb2
   type 'd' -> delete the partition 1-4 or whatever number they are suggesting you (give the number 1-4)
   After that 'w' -> it will rewrite the partition table
