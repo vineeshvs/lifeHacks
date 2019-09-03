@@ -6,6 +6,8 @@
 Welcome to lifehacks's documentation!
 =====================================
 
+The Github page linked with this documentation: https://github.com/vineeshvs/lifeHacks
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
