@@ -1,3 +1,32 @@
+
+### Installing gcc-7 in Ubuntu 16.04
+
+* Method 1
+
+[Ref](https://gist.github.com/jlblancoc/99521194aba975286c80f93e47966dc5)
+
+
+* Method 2 (Not recommended)
+```console
+sudo add-apt-repository ppa:jonathonf/gcc-7.3
+sudo apt-get update
+sudo apt-get install gcc-7
+```
+
+[Ref](https://askubuntu.com/questions/1009433/dependency-issues-while-installing-gcc-7-3-from-jonathon-fs-ppa/1009438?noredirect=1)
+
+### Bug: ImportError: No module named apt_pkg
+
+Solution: 
+
+```console
+sudo apt-get install python3-apt --reinstall
+cd /usr/lib/python3/dist-packages
+sudo ln -s apt_pkg.cpython-{35m,36m}-x86_64-linux-gnu.so
+```
+
+[Ref]9sudo ln -s apt_pkg.cpython-{35m,36m}-x86_64-linux-gnu.so)
+
 ### Copy all files of a particular extension in a directory and it's sub-directories to another folder
 
 ```console
@@ -122,7 +151,6 @@ chown -R gitrepo:gitrepo /home/gitrepo   #to change the owner of /home/gitrepo t
 
 ### Find and replace a string in all files
 
-
 ```console
 find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
 ```
@@ -130,7 +158,10 @@ find /path/to/files -type f -exec sed -i 's/oldstring/new string/g' {} \;
 [Ref](https://stackoverflow.com/questions/15402770/how-to-grep-and-replace)
 
 ### Sort the files in a directory (and sub directories) in descending order of file size
-  find . -type f  -exec du -h {} + | sort -r -h
+
+```console
+find . -type f  -exec du -h {} + | sort -r -h
+```
 
 ### CondaHTTPError error using Anaconda
   ERROR
@@ -150,7 +181,6 @@ a support request with your network engineering team.
 
 ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443): Max retries exceeded with url: /pkgs/pro/noarch/repodata.json.bz2 (Caused by ReadTimeoutError("HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443): Read timed out. (read timeout=9.15)",))',),)
 ```
-
 
 SOLUTION
 
@@ -368,13 +398,13 @@ sudo ufw reset
     df /home/users/vineeshvs/
 #### Shorten the bash command line prompt
 	* Add the following section to '~/.bashrc'
-		```bash
+		```console
 		if [ "$color_prompt" = yes ]; then
 			PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 		else
 			PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 		fi
-		```bash
+		```
 	* [Ref](http://askubuntu.com/questions/145618/how-can-i-shorten-my-command-line-bash-prompt)
 
 #### Installing Java to open Java enabled webpages in Firefox

@@ -49,7 +49,7 @@ Eg: Searching for '\n'
 ```console
     gg
 ```
-* Copy word under cursor
+* Copy word under cursor starting from the current position of the cursor.
 ```console
  yw 
 ```
