@@ -190,27 +190,39 @@ sudo ufw reset
 
 [Ref](https://www.howtogeek.com/115116/how-to-configure-ubuntus-built-in-firewall/)
 
-### Because teminal is your best friend
-
 ### Network related 
+
 #### If 'Enable Wi-Fi option is disabled' in Ubuntun 16.06
-    rfkill unblock all
+
+```console
+rfkill unblock all
+```
     [Ref](https://askubuntu.com/questions/152157/enable-wireless-option-is-disabled-in-network-settings)
 
 #### If wifi icon is not getting displayed in Ubuntu 16.04
+```console
     nohup nm-applet &
+```
 
 #### Ubuntu network error (Device not ready)
+```console
   sudo service network-manager restart
+```
 
 #### Ubuntu network error (Not authorized to control networking)
+```console
   sudo usermod -G netdev -a vineesh
-  or
+```
+or
+```console
   sudo su
   usermod -G netdev -a vineesh
+```
 
 #### What to do when the wifi options are not listed and two 'wired' connections are displayed instead of one 'wired' and one 'wireless'
+```console
     systemctl restart NetworkManager.service
+```
     Ref: (https://askubuntu.com/questions/789843/wired-connection-icon-is-displayed-instead-of-wifi-icon-ubuntu-16-04)
 
 #### Ubuntu Proxy Settings (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
@@ -295,11 +307,14 @@ sudo ufw reset
   [Ref](https://www.cyberciti.biz/faq/unix-linux-export-variable-http_proxy-with-special-characters/)
 
 ### Cropping pdf in Ubuntu terminal
+```console
     pdfcrop --margins '0 0 0 -345' miss_vs_tick.pdf out.pdf
 			--margins "<left> <top> <right> <bottom>" (0 0 0 0)
+```
 
 #### Saving terminal output to a file
 
+```console
               || visible in terminal ||   visible in file   || existing
       Syntax  ||  StdOut  |  StdErr  ||  StdOut  |  StdErr  ||   file   
     ==========++==========+==========++==========+==========++===========
@@ -320,82 +335,122 @@ sudo ufw reset
               ||          |          ||          |          ||
     |& tee    ||   yes    |   yes    ||   yes    |   yes    || overwrite
     |& tee -a ||   yes    |   yes    ||   yes    |   yes    ||  append
+```
 
 [Credits](https://askubuntu.com/questions/420981/how-do-i-save-terminal-output-to-a-file)
 
 #### Ignore files in git
+```console
   git rm --cached *.out *.log *.nav *.snm *.toc
+```
 
 #### Enable and disable auto-indenting in Vim
   Enable
+```console
     :set nopaste
+```
   Disable
+```console
     :set paste
+```
 
 #### Indenting in vim 
   Go to visual mode, select text and press >
 
 #### Paste without indenting in Vim
+```console
   :set paste
+```
   Shift + Ctrl + v
 
 #### Cropping away white spaces in a pdf file
+```console
     pdfcrop --margins '5 10 20 30' wrap.pdf wrap_cropped.pdf 
     [Ref](https://askubuntu.com/questions/124692/command-line-tool-to-crop-pdf-files)
 
 #### Killing vsim in Modelsim
+```console
 		ps -ef | grep 'vsim'
 		kill -9 <pid>
+```
 #### Killing <defunc> processes in terminal
+```console
     ps -ef | grep defunct | grep -v grep | cut -b8-20 | xargs kill -9
+```
 	[Ref](https://askubuntu.com/questions/201303/what-is-a-defunct-process-and-why-doesnt-it-get-killed
 	Example: Kill all the MATLAB processes running in your Ubuntu.
+```console
 	ps -ef | grep MATLAB | grep -v grep | cut -b8-20 | xargs kill -9
+```
 	Note: If there are no processes it will give an error related to the usage of _kill_
 
 
 
 
 #### Removing proxy in Ubuntu terminal
+```console
     unset http_proxy
     unset https_proxy
+```
   [Ref](https://askubuntu.com/questions/465198/how-do-i-temporarily-remove-proxy-settings)
 
 #### Hibernate Ubuntu 16.04 machine
   Choice 1:
+```console
   sudo systemctl hibernate
+```
   
   Choice 2:
+```console
   sudo pm-hibernate
+```
     
 #### What to do when Ubuntu GUI hangs and not even terminal opens
     * Go to command-line mode. (Press C-A-F3 in Thinkpad E470)
-    * ps -u
+```console
+    ps -u
+```
     * Check the pid of the process which created the trouble (Eg: 6779)
-    * kill -9 9779
+```console
+    kill -9 9779
+```
     * Do at your own risk because you will be in trouble, if you kill the wrong process
 
 #### 'Save as' in Vim and edit the new file
+```console
     :saveas newFileName
+```
 
 #### List all active processes in the machine in terminal
+```console
     top
+```
     <press 'u'>
     <Enter your username to see the processes you are running>
     
+```console
     top -u
+```
     <Directly display the processes you are running>
 
 #### Include graphics in your README files using ASCII images
     Ref: http://picascii.com/
 #### Sort files based on modification date 
+```console
 	ll -t
+```
 #### Sort files based on size
+```console
 	ls -lSr
+```
 #### Check folder size in Ubuntu
+```console
     du -sh /path/to/directory
+```
 #### Check the disk space usage by a particular user
+```console
     df /home/users/vineeshvs/
+```
 #### Shorten the bash command line prompt
 	* Add the following section to '~/.bashrc'
 		```console
@@ -409,8 +464,10 @@ sudo ufw reset
 
 #### Installing Java to open Java enabled webpages in Firefox
 	* Tested in Ubuntu 16
-	* sudo apt-get install icedtea-plugin
-	* sudo apt-get install default-jre
+```console
+	sudo apt-get install icedtea-plugin
+	sudo apt-get install default-jre
+```
 	* Go to firefox and type in the address bar "about:addons"
 	* Select 'Plugins' window from the left bar
 	* Enable the following plug-in [Selection the option from the dropdown menu on the right to 'Always activate']
@@ -421,30 +478,44 @@ sudo ufw reset
 	* [Ref](http://askubuntu.com/questions/354361/how-to-install-the-java-plugin-for-firefox/354406)
 #### Using GREP
     *grep to search inside files in the same directory. Search for the whole word <-w>
-    	```bash 
+    	```console 
 		grep -nrw '.' -e "Input" 
 		```
 		OR
-		```bash	
+		```console
 		grep -nrw "string_to_be_searched" .
 		```
 	* Search for only '.v' file extensions (Include '-i' for case-insensitive search)
-		* grep --color='auto' -nr --include \*.v "SEARCH_TERM" .
+```console
+		grep --color='auto' -nr --include \*.v "SEARCH_TERM" .
+```
     * Search excluding certain (<.v> for eg:) extensions. <--color='auto'> is used for highlighting the search term
-		* grep --color='auto' -nr --exclude \*.v "SEARCH_TERM" .
+```console
+		grep --color='auto' -nr --exclude \*.v "SEARCH_TERM" .
+```
 	* Search for words inside a pdf file
+```console
 		sudo apt-get install pdfgrep
 		find /path -iname '*.pdf' -exec pdfgrep pattern {} +
 		find . -iname '*.pdf' -exec pdfgrep <string_to_be_searched> {} +
+```
 #### Using find
     * Recursively look for files with a specific extension
+```console
         find $directory -type f -name \*.in
+```
 	* Find a particular file in a directory and it's subdirectories. (Replace '\*.py' with the file require by you).
+```console
         find $directory -type f -name \*.py
+```
 	* Find a particular file in the particular directory.
+```console
 	  find <name_of_the_directory> -type f -name '*.extension'
+```
 #### TODO: INCORRECT: TO BE VERIFIED: Copy all files of particular extension (*.v) found in a directory (libs/) and it's sub-directories to another directory (.). 
+```console
 	find libs -name '*.v' -exec cp -prv '{}' . ';'
+```
 
 #### Installing Ubuntu (Credits: https://www.cse.iitb.ac.in/~aamod/ubuntu/install.html##repo)
 
@@ -456,19 +527,29 @@ sudo ufw reset
 
 #### Tar in terminal
     * Compress
+```console
 		tar -zcvf archive_name.tar.gz folder_to_compress
+```
 	* Uncompress
+```console
 		tar xvzf archive_name.tar.gz
+```
+```console
     tar xf archive_name.xz
+```
 
 #### 'Cannot open display error'
 	* Use the following command
+```console
 		DISPLAY=:0
+```
 #### Error: exit status 1: Autolaunch error: X11 initialization failed. Cannot open display:
     * Solution:
         Added the following lines to ~/.bashrc
+```console
             xhost +
             alias sudo='sudo DISPLAY=:0'
+```
     * Ref:  
         http://superuser.com/questions/514688/sudo-x11-application-does-not-work-correctly
     * After effects:
@@ -477,20 +558,26 @@ sudo ufw reset
 
 #### Mount and unmount so file in termial
     Mount
+```console
         sudo mount -o loop /home/vineeshvs/software_installations/SPEC/cpu2006-1.2.iso /media/iso
+```
         Ignore the error
+```console
             mount: block device /home/vineeshvs/software_installations/SPEC/cpu2006-1.2.iso is write-protected, mounting read-only
+```
     Unmount
+```console
         sudo umount /media/iso/
+```
 
 #### Open an application without going to the directory of the executable: How to append path variable permanently in .bashrc file
-	```bash     
+	```console
 	#Adding path for Modelsim
 	export PATH=$PATH:/home/    vineeshvs/altera/13.1/modelsim_ase/bin
-	```bash
+	```
 
 #### Change the extension of all files in a folder from .txt to .md
-	```bash	
+	```console	
 	for old in *.txt; do mv $old `basename $old .txt`.md; done
 	```
 
@@ -515,6 +602,7 @@ sudo ufw reset
 	```
 	
 	**Making gcc-5 and g++-5 default**	
+```console
 	sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 20
 	sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 20
 		
@@ -552,7 +640,9 @@ sudo ufw reset
 	sudo make install.
 	```
 #### Unzip in terminal
+```console
 	unzip file_name.zip
+```
 
 #### How to get virtualenv to use dist-packages on Ubuntu? ((**Changing $PYTHONPATH**)
 
@@ -588,7 +678,9 @@ sudo ufw reset
 	sudo apt-get remove python-numpy
 	```
 #### Error: Error deleting partition /dev/sdb2: Command-line 
-  Solution: sudo gdisk /dev/dsb2
+  Solution: 
+```console
+  sudo gdisk /dev/dsb2
   type 'd' -> delete the partition 1-4 or whatever number they are suggesting you (give the number 1-4)
   After that 'w' -> it will rewrite the partition table
   It will work

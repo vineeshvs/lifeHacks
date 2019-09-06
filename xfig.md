@@ -25,6 +25,9 @@
     ```
 
 * Glue objects
-  g
+
+```console
+g
+```
   click on the objects to glue
   right click

@@ -44,7 +44,9 @@ _--cached_ is used to removed previously tracked files from Git.
 
 #### See the changes in a particular commit
 	
+```console
 	git show 24c3ccca81fa5242496d47be763369a822560890
+```
 	
 [Ref](https://stackoverflow.com/questions/17563726/how-to-see-the-changes-in-a-git-commit)
 
@@ -54,9 +56,13 @@ Note: The changes in that commit will open in Vim. Search for the name of your f
 
 * Delete the file from git (not from the local drive).
 
+```console
 	git rm --cached <file>
+```
 	# Remove all files with the extension 'lst'. It will remove the files from the repository, without removing it from the local disk.
+```console
 	git ls-files | grep '\.lst$' | xargs git rm --cached
+```
 
 [Ref](https://stackoverflow.com/questions/7527982/applying-gitignore-to-committed-files)
 
@@ -64,25 +70,35 @@ Note: The changes in that commit will open in Vim. Search for the name of your f
 
 #### How to make the changes in the repo after deleting a file.
 
+```console
 	git add -u #before committing the changes after you delete a file in the git directory
+```
 
 ### Find the difference between current version (offline) and the remote version
 
+```console
 	$ git fetch
 	$ git diff HEAD^ HEAD
+```
 
 ### Updating the local repo origin when the remote repository is moved to a new address (Eg: IP of the machine which hosted the repo changed)
 
 * In the local repo use the following command,
 
+```console
 	git remote set-url origin new.git.url/here
+```
 
 [Ref](https://stackoverflow.com/questions/2432764/how-to-change-the-uri-url-for-a-remote-git-repository)
 
 Example 1:
 
+```console
 	git remote set-url origin new.git.url/here
+```
 
 Example 2 (if it is a repo hosted in a local machine):
 
+```console
 	git remote set-url origin username@10.107.111.111:~/repos/research.git
+```

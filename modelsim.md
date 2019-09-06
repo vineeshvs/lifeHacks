@@ -17,6 +17,10 @@ Solution:
 Error: /cad2/mentor/modelsim_10.0/modeltech/bin/../linux/vish: error while loading shared libraries: libXft.so.2: wrong ELF class: ELFCLASS64
 Solution:
 * Log in  (Do SSH)
-* ```source cad3/digitalbashrc```
-* If you do ```source /cad/digital/bashrc``` before the above command, it will give this error
+```console
+source cad3/digitalbashrc
+```
+
+* If you do 
+```console source /cad/digital/bashrc``` before the above command, it will give this error
     
