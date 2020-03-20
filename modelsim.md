@@ -1,3 +1,17 @@
+##### Error: "Illegal reference to the net clk"
+Solution:
+Convert 'wire clk;' to 'reg clk;'
+
+##### Error: "# Errors: 0, Warnings: 0 # No Design Loaded!"
+Solution: 
+	Make sure that you have simulated the design. Uncommenting the following line in my tcl file solved this error
+	```console
+	vsim -novopt work.usb_bench
+	```
+##### Changing the font size in Modelsim window
+
+[Ref[(https://stackoverflow.com/questions/31555431/the-font-of-my-modelsim-is-too-small-to-see)
+
 ##### Seeing ? symbols in the .lst file?
 Solution: 
 

@@ -1,4 +1,8 @@
-Commonly used commands in Emacs
+Commonly used commands in Emacs.
+
+#### Replace with newline character
+
+[Ref](https://stackoverflow.com/questions/613022/how-to-replace-a-character-with-a-newline-in-emacs)
 
 #### Change all letters in the selected region to upper-case
 

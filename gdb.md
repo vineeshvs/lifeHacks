@@ -18,7 +18,6 @@ n
 <until you hit the breakpoint>
 ```
 
-
 i b : Display all breakpoints.
 d: Delete all breakpoints.
 c: Run till next breakpoint.

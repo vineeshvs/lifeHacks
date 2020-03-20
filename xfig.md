@@ -1,3 +1,9 @@
+#### Disable snap to grid
+
+Select 'ADD POINTS' button from the left side bottom options and select Point position and click on 'ANY' in the options.
+
+http://www.verycomputer.com/18_b158f71ceef58469_1.htm
+
 * Getting latex fonts in xfig figures
 
   * When you click on the text mode in xfig click on the "Text flags" tab. Three options appear. One of them is "Special flag". Change this option from "Normal" to "Special". 
@@ -29,5 +35,5 @@
 ```console
 g
 ```
-  click on the objects to glue
-  right click
+  click on all the objects you want to glue.
+  right mouse click.

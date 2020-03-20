@@ -1,3 +1,76 @@
+#### Using branches
+
+```console
+# List all current branches.
+git branch
+# Create a branch 
+git branch new_branch
+# Checkout to the new branch
+git checkout new_branch
+# Make necessary changes to files and do git add, git commit -a
+# Push the changes in the branch to the remote repo.
+git push origin new_branch
+# Come back to master branch
+git checkout master
+```
+
+```console
+git branch -d <name_of_the_branch>
+```
+
+[Tutorial](https://www.atlassian.com/git/tutorials/using-branches)
+
+#### Merging branches
+
+```console
+# Start a new feature
+git checkout -b new-feature master
+# Edit some files
+git add <file>
+git commit -m "Start a feature"
+# Edit some files
+git add <file>
+git commit -m "Finish a feature"
+# Merge in the new-feature branch
+git checkout master
+git merge new-feature
+git branch -d new-feature
+```
+
+[Ref](https://www.atlassian.com/git/tutorials/using-branches/git-mergem a file to the previous remote commit version
+
+```console
+git checkout -- filename
+```
+
+[Ref](https://stackoverflow.com/questions/1817766/how-to-revert-to-origins-master-branchs-version-of-file)
+
+#### Merging only selected files and folders from a branch to main branch
+
+[Ref](https://stackoverflow.com/questions/10784523/how-do-i-merge-changes-to-a-single-file-rather-than-merging-commits/11593308#11593308)
+
+Example
+```console
+# Commit everything in the branch 'test' which has a newly created folder doc/ inside an existing (in master) folder vineeshvs.
+git checkout master
+git checkout test vineeshvs/doc
+```
+
+#### Removing all committed files in directory with a particular name. 
+Runs recursively in the current directory, it's sub-dictory and so on.
+
+```console
+find . -type d -name '\/<name_of_the_directory>\/' | xargs git rm -r --cached
+# e.g. 
+find . -type d -name '\/jgproject\/' | xargs git rm -r --cached`
+```
+
+#### Creating .gitignore file
+
+/data/ : Ignore the folder named 'data' in the current directory and all folders named '/data' in it's sub-directories.
+data/ : Ignore all folders with name 'data' in the current dictory and it's sub-directories
+[Ref](https://stackoverflow.com/questions/29820791/git-ignore-node-modules-folder-everywhere)
+
 #### Add the contents of an existing local folder to an empty fresh repository.
 
 * Switch to your local directory.

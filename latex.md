@@ -1,3 +1,56 @@
+
+### Highlight entries inside listing
+[Ref](https://tex.stackexchange.com/questions/299401/bold-just-one-line-inside-of-lstlisting/299406#299406)
+
+### Shrink table size
+
+```console
+\begin{frame}
+  \begin{table}[h]
+	\vspace{-0.4 cm}
+	\caption{Likelihood values for two step filtering of waypoints \label{ll-mesi}}
+	%\vspace{-0.45 cm}
+	\begin{center}
+	  %\begin{tabular}{|p{3cm}|p{0.7cm}|p{0.7cm}|p{2.15cm}|}
+	  \resizebox{0.7\columnwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|}
+		  \hline  
+		  Guidance Hints ($H$)	& $ll$ at step-1 & $ll$ at step-2	& Selected/ rejected\\ 	\hline  
+		  H(0)	&0.4891	& 0.3136	& Rejected in step-2\\ 	\hline  
+		  H(1)	&0.4896	&0.3132	&Rejected in step-2\\ 	\hline  
+		  H(2)	&0	&0.3145	&Rejected in step-2\\ 	\hline  
+		  \textit{H(3)}	&\textit{0.4610}	&\textit{0}	&\textit{Selected}\\ 	\hline  
+		  H(4)	&0.4896	&0.3132	&Rejected in step-2\\ 	\hline  
+		  H(5)	&0	&NA	&Rejected in step-1\\ 	\hline  
+		  H(6)	&0	&NA	&Rejected in step-1\\ 	\hline  
+		  H(7)	&0	&NA	&Rejected in step-1\\ 	\hline  
+		  H(8)	&0	&NA	&Rejected in step-1\\ 	\hline  
+		  H(9)	&0	&NA	&Rejected in step-1\\ 	\hline  
+		  H(10)	&0	&NA	&Rejected in step-1\\ 	\hline  
+		  H(11)	&0	&NA	&Rejected in step-1\\ 	\hline  
+		\end{tabular}
+	  }
+	\end{center}                                                
+	\vspace{-0.3cm}               
+  \end{table}
+\end{frame}
+```
+
+[Ref](https://tex.stackexchange.com/questions/10863/is-there-a-way-to-slightly-shrink-a-table-including-font-size-to-fit-within-th/10864)
+
+### Include .tex images
+
+```console
+\begin{frame}
+  \begin{figure}[h] 
+	\centering
+	\scalebox{.5}{\import{images/}{workFlow_no_tool_names.tex}} 
+	\caption{Work flow}
+	\label{figure_workflow}
+  \end{figure}
+\end{frame}
+```
+
 ### Including .dot files (graphs mostly) in Latex document
 1. Convert to eps (See the example below)
 
@@ -54,7 +107,6 @@ dot -Tps2 cone_count2_counters.dot -o cone_count2_counters.eps
     "mesi_isc_basic_fifo.status_full" -> "mesi_isc_basic_fifo.status_full";
     }
 ```
-
 
 ### Installing the texlive full
 

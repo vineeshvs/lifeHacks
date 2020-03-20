@@ -1,3 +1,57 @@
+#### DNS error in Chrome and Firefox
+**Error**
+DNS_PROBE_FINISHED_BAD_CONFIG
+
+**Solution**
+https://askubuntu.com/questions/622470/dns-probe-finished-bad-config-error-in-ubuntu-14-04/622493#622493
+
+
+#### Documenting your code using Doxygen
+
+* Download Doxygen from [here](http://www.doxygen.nl/download.html)
+* Go to the directory with your codes and run the following.
+```console
+doxygen -g
+doxygen Doxyfile
+```
+* You will see your documentation in the folder 'html'.
+
+#### Find the difference between two directories/ Compare two folders.
+
+```console
+diff -r dir1 dir2 
+# shows which files are only in dir1
+diff -r dir1 dir2 | grep dir1 
+```
+
+```console
+diff -r dir1 dir2 
+```
+
+[Ref](https://stackoverflow.com/questions/16787916/difference-between-two-directories-in-linux)
+
+#### Compress PDFs
+
+```console
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf
+```
+
+[Ref](https://askubuntu.com/questions/113544/how-can-i-reduce-the-file-size-of-a-scanned-pdf-file)
+
+#### Merge PDFs
+
+Example
+```console
+pdftk 1-2.pdf 3.pdf 4.pdf 6-63.pdf cat output thesis_signed_Sreekanth_143074005.pdf
+```
+
+[Ref](https://askubuntu.com/questions/2799/how-to-merge-several-pdf-files)
+
+#### Find all folders (in a directory and it's sub-directories and so on) with a particular name
+
+```console
+find . -type d -name 'name_of_the_directory_you_are_looking_for'
+```
 
 ### Installing gcc-7 in Ubuntu 16.04
 
@@ -493,6 +547,11 @@ or
 ```console
 		grep --color='auto' -nr --exclude \*.v "SEARCH_TERM" .
 ```
+	Another example	
+```console
+grep -nr 'addr*' --include=\*.v --exclude=mesi_isc_tb_cpu1.v --exclude=mesi_isc_tb_cpu2.v --exclude=mesi_isc_tb_cpu0.v --exclude=mesi_isc_tb_cpu3.v --exclude-dir files_from_vineesh/ --exclude-dir old_files/ --exclude-dir archive/ .
+```
+
 	* Search for words inside a pdf file
 ```console
 		sudo apt-get install pdfgrep
@@ -541,7 +600,7 @@ or
 #### 'Cannot open display error'
 	* Use the following command
 ```console
-		DISPLAY=:0
+		
 ```
 #### Error: exit status 1: Autolaunch error: X11 initialization failed. Cannot open display:
     * Solution:

@@ -1,4 +1,42 @@
+#### Add comments (%) in a Matlab/ Octave script.
+
+:.,$s/\n/\r\%/gc
+
+
+
+#### Using Vim scripts
+
+* Create name_of_the_script.vim
+
+An example
+
+```console
+:%s/S0/$S_{0}$/gc
+:%s/S1/$S_{1}$/gc
+:%s/S2/$S_{2}$/gc
+:%s/S3/$S_{3}$/gc
+:%s/S4/$S_{4}$/gc
+:%s/S5/$S_{5}$/gc
+:%s/S6/$S_{6}$/gc
+```
+
+* Open your file in Vim and run the script as follows
+```console
+:source <name_of_the_script.vim>
+```
+
+[Ref](https://stackoverflow.com/questions/3374179/run-vim-script-from-vim-commandline/8806874)
+
 #### Search for strings with special characters in vim
+
+#### Interactive find and replace inside all files in a directory it's sub-directory and so on.
+
+```console
+shopt -s globstar
+vim -c 'set nomore' -c 'argdo %s/ats2019-oreon-subproperty-generator/ats2019-orion/gc' -c xa **/*.tcl
+```
+
+[Credits](https://stackoverflow.com/questions/55774223/interactive-find-and-replace-in-all-files-including-those-in-sub-directories-usi)
 
 ### Search for number of occurances of a string in a file
 
