@@ -1,3 +1,22 @@
+#### Unfreezing Ubuntu 16.04 desktop which happens due to Compiz
+
+https://www.franzoni.eu/unfreezing-your-desktop-when-compiz-goes-wrong/
+
+#### Installing Microsoft VS code editor in Ubuntu 16.04
+[Link](https://tipsonubuntu.com/2017/03/03/install-ms-visual-studio-code-ubuntu-16-0416-10/)
+
+#### 'Permission denied' error upon accessing a folder after 'chmod 666 *' in a folder
+Do the following
+```console
+chmod 766 *
+```
+
+#### Display contents of all folders
+
+```console
+ls *
+```
+
 #### DNS error in Chrome and Firefox
 **Error**
 DNS_PROBE_FINISHED_BAD_CONFIG

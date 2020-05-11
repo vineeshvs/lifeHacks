@@ -1,3 +1,18 @@
+#### Rebase on pull to avoid merge-commits in the commit history
+
+```console
+git commit -a
+git pull --rebase
+git push origin master
+```
+
+[Ref](https://randyfay.com/content/simpler-rebasing-avoiding-unintentional-merge-commits)
+
+#### Change the previous commit message
+```console
+git commit --amend
+```
+
 #### Using branches
 
 ```console
@@ -62,7 +77,7 @@ Runs recursively in the current directory, it's sub-dictory and so on.
 ```console
 find . -type d -name '\/<name_of_the_directory>\/' | xargs git rm -r --cached
 # e.g. 
-find . -type d -name '\/jgproject\/' | xargs git rm -r --cached`
+find . -type d -name '\/jgproject\/' | xargs git rm -r --cached
 ```
 
 #### Creating .gitignore file
