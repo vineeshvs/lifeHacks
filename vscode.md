@@ -1,3 +1,7 @@
+#### vscode-fileheader
+My settings
+""" \n * @Title: \n * @Author: {author}  \n * @Date: {createTime}  \n * @Last Modified by:   {lastModifiedBy}  \n * @Last Modified time: {updateTime} \n * @Comments:  \n * @TODO: \n"""\n\n
+
 #### Open recent files
 
 Cntrl + R

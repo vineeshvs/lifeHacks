@@ -136,8 +136,7 @@ ls *.!(txt)
 ### Find the free space available in /home
 
 ```console
-cd ~/
-df -Ph . | tail -1 | awk '{print $4}'
+cd ~/; df -Ph . | tail -1 | awk '{print $4}'
 ```
 
 ### grep excluding multiple directories
