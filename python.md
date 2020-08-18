@@ -1,3 +1,13 @@
+### Installing Python packages in user account without root privileges
+* For Python 2
+pip install --user numpy matplotlib
+* For Python 3
+pip3 install --user numpy matplotlib
+* There is some issue with pip3.8. The following command fails.
+pip3 install --user numpy matplotlib
+
+[Ref](https://stackoverflow.com/questions/7143077/installing-pip-packages-to-home-folder/7143496#7143496)
+
 ### Run a local python script in a remote machine
 
 ```console

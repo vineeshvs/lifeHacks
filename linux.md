@@ -1,3 +1,11 @@
+#### SSH Key error
+* Error during ssh after storing local keys to server.
+    Permissions 0711 for '~/.ssh/id_rsa' are too open.
+* Solution
+    ssh-keygen
+    chmod 600 ~/.ssh/id_rsa
+    cat ~/.ssh/id_rsa.pub | ssh username@10.107.190.28 ' cat >> ~/.ssh/authorized_keys '
+
 #### Unfreezing Ubuntu 16.04 desktop which happens due to Compiz
 
 https://www.franzoni.eu/unfreezing-your-desktop-when-compiz-goes-wrong/
