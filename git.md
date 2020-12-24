@@ -1,3 +1,24 @@
+#### Using git through SSH (instead of HTTPS)
+[Tutorial which I tested personally](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+
+* It helps if you try to clone to a repo using https and get the following error. The reason could be an older version of git like 1.7.1 (which I had in VLSI43)
+
+      error: The requested URL returned error: 403 Forbidden while accessing https://github.com/vineeshvs/tc2020.git/info/refs clone
+
+* Once you have added the SSH keys to Github, change the origin of the repo in the local pc using the instructions below
+    https://docs.github.com/en/github/using-git/changing-a-remotes-url
+    * In short you can just use
+
+      git remote set-url origin git@github.com:<GitHub_username>/<repo_name>.git
+
+#### Organizing foldes in a Git repo
+
+Consider the following model repos.
+
+https://github.com/microsoft/terminal
+
+https://github.com/apache/httpd
+
 #### Rebase on pull to avoid merge-commits in the commit history
 
 ```console
@@ -9,31 +30,26 @@ git push origin master
 [Ref](https://randyfay.com/content/simpler-rebasing-avoiding-unintentional-merge-commits)
 
 #### Change the previous commit message
-```console
-git commit --amend
-```
+
+    git commit --amend -a
 
 #### Using branches
 
-```console
-# List all current branches.
-git branch
-# Create a branch 
-git branch new_branch
-# Checkout to the new branch
-git checkout new_branch
-# Make necessary changes to files and do git add, git commit -a
-# Push the changes in the branch to the remote repo.
-git push origin new_branch
-# Come back to master branch
-git checkout master
-```
+    # List all current branches.
+    git branch
+    # Create a branch 
+    git branch new_branch
+    # Checkout to the new branch
+    git checkout new_branch
+    # Make necessary changes to files and do git add, git commit -a
+    # Push the changes in the branch to the remote repo.
+    git push origin new_branch
+    # Come back to master branch
+    git checkout master
 
-```console
-git branch -d <name_of_the_branch>
-```
+    git branch -d <name_of_the_branch>
 
-[Tutorial](https://www.atlassian.com/git/tutorials/using-branches)
+[Atlassian tutorial](https://www.atlassian.com/git/tutorials/using-branches)
 
 #### Merging branches
 

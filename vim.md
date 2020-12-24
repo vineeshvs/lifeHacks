@@ -1,7 +1,51 @@
+## TODOs
+https://vi.stackexchange.com/questions/422/displaying-tabs-as-characters
+
+
+#### Display or hide line numbers
+
+    :set number
+    :set nonumber
+
+#### Delete rest of the word
+
+    :dw
+
+#### Auto read files open in Vim
+Put the following in your .vimrc:
+
+" check one time after 4s of inactivity in normal mode
+set autoread
+au CursorHold * checktime 
+
+https://stackoverflow.com/questions/2157914/can-vim-monitor-realtime-changes-to-a-file
+
+#### Regex for one or more occurrences
+Use \+ instead of just +
+
+[Ref](https://stackoverflow.com/questions/838979/unable-to-match-one-or-more-whitespaces-in-vim)
+
+#### Reload all files open in a split winodow
+
+    :windo e
+
+[Ref](https://stackoverflow.com/questions/3770715/how-do-you-reload-all-vim-windows-at-once)
+
+You can use the :edit command, without specifying a file name, to reload the current file. If you have made modifications to the file, you can use :edit! to force the reload of the current file (you will lose your modifications).
+
+The command :edit can be abbreviated by :e. The force-edit can thus be done by :e!
+
+In addition to manually refreshing the file with :edit, you can put into your ~/.vimrc
+
+    :set autoread
+
+
+[Ref](https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim)
+
+
 #### Add comments (%) in a Matlab/ Octave script.
 
-:.,$s/\n/\r\%/gc
-
+    :.,$s/\n/\r\%/gc
 
 
 #### Using Vim scripts
@@ -10,15 +54,13 @@
 
 An example
 
-```console
-:%s/S0/$S_{0}$/gc
-:%s/S1/$S_{1}$/gc
-:%s/S2/$S_{2}$/gc
-:%s/S3/$S_{3}$/gc
-:%s/S4/$S_{4}$/gc
-:%s/S5/$S_{5}$/gc
-:%s/S6/$S_{6}$/gc
-```
+        :%s/S0/$S_{0}$/gc
+        :%s/S1/$S_{1}$/gc
+        :%s/S2/$S_{2}$/gc
+        :%s/S3/$S_{3}$/gc
+        :%s/S4/$S_{4}$/gc
+        :%s/S5/$S_{5}$/gc
+        :%s/S6/$S_{6}$/gc
 
 * Open your file in Vim and run the script as follows
 ```console

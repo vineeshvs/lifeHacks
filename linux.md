@@ -1,3 +1,41 @@
+#### Resume partially copied files during scp
+
+Files
+
+    rsync -P -e ssh remoteuser@remotehost:/remote/path/to/file /local/path
+
+Folders
+
+    rsync -P -e ssh -r remoteuser@remotehost:/remote/path/to/folder /local/path
+
+https://stackoverflow.com/questions/26411225/how-to-resume-scp-with-partially-copied-files
+
+#### Killing teamviewer
+
+sudo teamviewer --daemon stop
+
+
+#### Creating bootable Windows 10 pendrive in Ubuntu
+
+* Download Windows from the official site.
+https://www.omgubuntu.co.uk/2017/06/create-bootable-windows-10-usb-ubuntu
+
+#### Installing uTorrent in Ubuntu 16.04
+
+https://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/install-utorrent-on-ubuntu-16-04.html
+
+* How to open torrent?
+
+    * utserver -settingspath /opt/utorrent-server-alpha-v3_3/ &
+    * Once you run the command, navigate your web browser to the following address.
+        http://your-ip-address:8080/gui
+        Username is admin and leave the password field empty.
+
+#### Mouse clicks stop working in Ubuntu 16.04
+* It can still be hovered over items and see the actions for those items displayed. But couldn't click
+* Solution: Kill *compiz* uisng *top*. 
+* I had disconnected the external mouse before this kill. Don't know if it had any impact. TODO: Check later.
+
 #### SSH Key error
 * Error during ssh after storing local keys to server.
     Permissions 0711 for '~/.ssh/id_rsa' are too open.
@@ -63,7 +101,14 @@ diff -r dir1 dir2
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf
 ```
 
-[Ref](https://askubuntu.com/questions/113544/how-can-i-reduce-the-file-size-of-a-scanned-pdf-file)
+dPDFSETTINGS	Description
+/prepress (default)	Higher quality output (300 dpi) but bigger size
+/ebook	Medium quality output (150 dpi) with moderate output file size
+/screen	Lower quality output (72 dpi) but smallest possible output file size
+
+
+[Ref 1](https://askubuntu.com/questions/113544/how-can-i-reduce-the-file-size-of-a-scanned-pdf-file)
+[Ref 1](https://itsfoss.com/compress-pdf-linux/)
 
 #### Merge PDFs
 
@@ -227,7 +272,7 @@ cp /etc/skel/* /home/gitrepo                             #to copy copy files fro
 chown -R gitrepo:gitrepo /home/gitrepo   #to change the owner of /home/gitrepo to the new user
 ```
 
-[Ref] https://askubuntu.com/questions/335961/create-default-home-directory-for-existing-user-in-terminal/546090
+[Ref](https://askubuntu.com/questions/335961/create-default-home-directory-for-existing-user-in-terminal/546090)
 
 ### Find and replace a string in all files
 
@@ -624,10 +669,14 @@ grep -nr 'addr*' --include=\*.v --exclude=mesi_isc_tb_cpu1.v --exclude=mesi_isc_
 ```
 
 #### 'Cannot open display error'
-	* Use the following command
-```console
-		
-```
+	* Use the following command -X while doing ssh.
+    
+        e.g. ssh -X username@ip
+
+    If you use small letter x, you will get the error.
+
+        e.g. ssh -x username@ip
+
 #### Error: exit status 1: Autolaunch error: X11 initialization failed. Cannot open display:
     * Solution:
         Added the following lines to ~/.bashrc

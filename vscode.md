@@ -1,3 +1,19 @@
+#### Keyboard shortcuts
+
+    Ctrl+PageDown go to the right editor.
+    Ctrl+PageUp go to the left editor.
+    Ctrl+K Ctrl+W close all editors
+    Ctrl+K Z : Zen mode
+
+#### Copy a line
+Click somewhere on the line without selecting anything and use the following command.
+    C+c
+
+#### Open the settings of VSCODE in Ubuntu
+C + ,
+
+Note: 'C' means Cntrl button in the keyboard.
+
 #### Bug: Cannot find root file 
 **Fix** (Copied from https://github.com/James-Yu/LaTeX-Workshop/issues/776#issuecomment-421309521)
 

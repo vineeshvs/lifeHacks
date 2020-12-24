@@ -1,3 +1,12 @@
+### Check the version of a Python package.
+
+    pip2 freeze | grep <package_name>
+
+For example,
+
+    pip2 freeze | grep matplotlib
+    pip2 freeze | grep networkx
+
 ### Installing Python packages in user account without root privileges
 * For Python 2
 pip install --user numpy matplotlib
@@ -7,6 +16,15 @@ pip3 install --user numpy matplotlib
 pip3 install --user numpy matplotlib
 
 [Ref](https://stackoverflow.com/questions/7143077/installing-pip-packages-to-home-folder/7143496#7143496)
+
+#### Installation using 'pip3' and 'python3 -m pip' are the same
+Meaning, the following two commands are equivalent
+
+    sudo python3 -m pip install pyverilog
+
+    sudo pip3 install pyverilog
+
+[Reference](https://stackoverflow.com/questions/41307101/difference-between-pip3-and-python3-m-pip)
 
 ### Run a local python script in a remote machine
 
@@ -187,6 +205,7 @@ Python 2.7.12
 ```console
 python2 -m pip install seaborn
 ```
+* Use sudo if you get permission errors. Or use --user to install for the user.
 
 ### CLASSES AND METHODS:
 
