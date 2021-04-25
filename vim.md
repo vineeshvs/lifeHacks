@@ -1,6 +1,17 @@
+# GVIM
+
+#### Hide Menu/toolbar
+:set guioptions -=m 
+:set guioptions -=T
+
+#### Autcomplete
+
+Cntrl + p/n
+
+# VIM
+
 ## TODOs
 https://vi.stackexchange.com/questions/422/displaying-tabs-as-characters
-
 
 #### Display or hide line numbers
 

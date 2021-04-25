@@ -1,3 +1,7 @@
+#### Facing font issues in Ubuntu 20.04?
+
+Ref: https://askubuntu.com/questions/1287283/text-size-in-xfig-not-working-in-ubuntu-version-20-04
+
 #### Disable snap to grid
 
 Select 'ADD POINTS' button from the left side bottom options and select Point position and click on 'ANY' in the options.

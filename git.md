@@ -1,3 +1,10 @@
+#### Autocomplete in vim
+
+   Cntrl + n/p
+
+   [Ref](https://stackoverflow.com/questions/5169638/autocompletion-in-vim)
+
+
 #### Using git through SSH (instead of HTTPS)
 [Tutorial which I tested personally](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 

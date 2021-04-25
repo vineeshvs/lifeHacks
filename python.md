@@ -1,3 +1,9 @@
+### Install python 2 regex in Ubuntu20.04
+
+        sudo pip2 install regex
+        # Check if installed
+        pip2 list | grep "regex"
+
 ### Check the version of a Python package.
 
     pip2 freeze | grep <package_name>
